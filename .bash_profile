@@ -24,10 +24,9 @@ export FZF_DEFAULT_OPTS='--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28F
 # export XDG_CONFIG_HOME="~/.config"
 export PATH=$PATH:/home/mindhunter/.spicetify
 export SPICE_PATH="$HOME/.config/spicetify"
-export OPENAI_API_KEY="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" 
+
 ~/.bin/banner
 . "$HOME/.cargo/env"
-
 
 # Added by Toolbox App
 export PATH="$PATH:/home/mindhunter/.local/share/JetBrains/Toolbox/scripts"
