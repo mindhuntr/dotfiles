@@ -13,5 +13,6 @@ This is a collection of configs for the various programs I have used in the cour
 | Window Manager       | [`i3-gaps-rounded`](https://github.com/jbenden/i3-gaps-rounded)
 | Compositor           | [`pijulius/picom`](https://github.com/pijulius/picom)         |
 | Terminal             | [`alacritty`](https://github.com/alacritty/alacritty)         |
-| Editor               | [`vim`](https://github.com/vim/vim)                           |
+| Editor               | [`neovim`](https://github.com/neovim/neovim)                  |
 | System Tray          | [`polybar`](https://github.com/vim/vim)                       |
+| Application Launcher | [`rofi`](https://github.com/davatorium/rofi)                  |
