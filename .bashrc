@@ -225,11 +225,11 @@ bind '"\e[24~":"sudo "'
 # PS1="\[\e[1;38;5;161m\]\W ⵀ\[\\e[0m\] "
 
 if [[ -z "$(ip netns identify)" ]]
-then
-PS1="\[\e[1;38;5;210m\]\w\[\e[0m\] in \[\e[1;38;5;216m\]\h\n$\[\e[0m\] "
-else
-ns_name="$(ip netns identify)"
-PS1="\[\e[1;38;5;210m\]\w\[\e[0m\] in \[\e[1;38;5;216m\]${ns_name}\n$\[\e[0m\] "
+   then
+      PS1="\[\e[1;38;5;210m\]\w\[\e[0m\] in \[\e[1;38;5;216m\]\h\n$\[\e[0m\] "
+   else
+      ns_name="$(ip netns identify)"
+      PS1="\[\e[1;38;5;210m\]\w\[\e[0m\] in \[\e[1;38;5;216m\]${ns_name}\n$\[\e[0m\] "
 
 # Set variables
 export XDG_RUNTIME_DIR=/run/user/1000
