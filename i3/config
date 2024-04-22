@@ -185,8 +185,10 @@ assign [class="Geary"] $ws9
 assign [class="Mailspring"] $ws9
 assign [class="discord"] $ws10
 assign [class="spotify"] $ws10
+
 for_window [class="^.*"] border pixel 1
 for_window [class="Zenity"] resize set 500px 200px
+for_window [class="irssi" instance=".*irssi$.*"] floating enable, resize set 1400 800, move position center
 
 
 # reload the configuration file
@@ -320,7 +322,7 @@ bindsym $mod+0xffad scratchpad show
 bindsym $mod+shift+m exec ~/.bin/echo &
 bindsym $mod+g exec flameshot gui --raw | tesseract -l eng stdin stdout | xclip -selection clipboard
 bindsym $mod+n exec mailspring --password-store="gnome-libsecret"
-bindsym $mod+x [floating] resize set 1000 600
+bindsym $mod+x [floating] resize set 1400 800, move position center
 bindsym $mod+z exec ~/.bin/scrot
 bindsym $mod+shift+p exec LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify
 bindsym $mod+shift+t bar mode toggle
