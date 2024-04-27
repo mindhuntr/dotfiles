@@ -177,6 +177,9 @@ alias upipe="systemctl --user restart pipewire"
 alias yt="ytfzf -c Y,R"
 alias sudo="sudo -E "
 alias v="~/.bin/nv_curs"
+alias mv="advmv" 
+alias cp="advcp" 
+
 # alias th="tmuxp load ~/.config/tmuxp/default.yaml"
 
 # alias nv="nvim"
@@ -238,7 +241,7 @@ fi
 PS3="% "
 
 #Bookmarks
-source ~/.local/bin/bashmarks.sh
+# source ~/.local/bin/bashmarks.sh
 source ~/.bin/func
 
 #shopt
@@ -282,8 +285,8 @@ export HISTFILE=~/.bash_eternal_history
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 
-source /home/mindhunter/.bash_completions/nala.sh
-. "$HOME/.cargo/env"
+# source /home/mindhunter/.bash_completions/nala.sh
+# . "$HOME/.cargo/env"
 
 eval `dircolors ~/git_repos/dircolors/bliss.dircolors`
 

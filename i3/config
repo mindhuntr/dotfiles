@@ -18,6 +18,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -330,6 +331,7 @@ bindsym $mod+shift+z exec rofi -modi emoji -show emoji
 # for_window [class="URxvt" title="floating_urxvt$"] floating enable, resize set 1000px 600px
 
 # Tiling
+exec xset b off
 exec_always --no-startup-id /home/mindhunter/git_repos/i3-alternating-layout/alternating_layouts.py
 
 # Wallpaper
@@ -338,7 +340,7 @@ exec_always feh --bg-scale /home/mindhunter/.config/wall.jpg
 # Applications
 exec /home/mindhunter/Downloads/Telegram/Telegram
 # exec /usr/bin/compton -f
-exec picom -b -f --animations --animation-window-mass 0.5 --animation-for-open-window zoom --animation-stiffness 350 --fade-exclude 'class_g = "i3lock"'
+exec_always /home/mindhunter/.local/bin/picom -b -f --animations --animation-window-mass 0.5 --animation-for-open-window zoom --animation-stiffness 350 --fade-exclude 'class_g = "i3lock"'
 exec dunst
 exec /home/mindhunter/.bin/locker &
 exec firefox
@@ -353,9 +355,9 @@ gaps inner 10
 gaps outer 10
 smart_gaps off
 
-border_radius 10
+# border_radius 10
 
-popup_during_fullscreen smart
+# popup_during_fullscreen smart
 focus_follows_mouse no
 
 workspace_auto_back_and_forth yes
