@@ -293,6 +293,9 @@ require('lazy').setup({
   { 'preservim/vim-pencil' },
   { 'junegunn/limelight.vim' },
   { 'junegunn/goyo.vim' },
+
+  -- Image Viewing ( appears to work only with kitty )
+  --- { 'edluffy/hologram.nvim' },
   -- Lua
   {
   "folke/zen-mode.nvim",
@@ -378,6 +381,7 @@ vim.o.expandtab = true
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.api.nvim_set_keymap('n', 'WW', '[[:SoftPencil<CR>:ZenMode<CR>]]', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'zz', '[[:q!<CR>]]', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'ff', '[[:Neotree<CR>]]', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>9', '[[:tabprevious<CR>]]', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>0', '[[:tabnext<CR>]]', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>t', '[[:tabnew<CR>]]', { noremap = true, silent = true })

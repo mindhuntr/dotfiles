@@ -134,7 +134,7 @@ alias install="sudo nala install"
 alias fuckoff="exit"
 alias rot13="tr 'A-Za-z' 'N-ZA-Mn-za-m'"
 # alias update="sudo apt update && sudo apt full-upgrade -y"
-alias update="yay -Syu"
+alias update="yay"
 alias open="xdg-open"
 alias ..="cd .."
 alias r="cd ~-"
@@ -224,6 +224,8 @@ bind -x '"\e[11~":"ʞ"'
 bind -x '"\e[12~":"chdir"'
 bind -x '"\e[13~":"aps"'
 bind '"\e[24~":"sudo "'
+bind 'set show-all-if-ambiguous on'
+bind 'TAB:menu-complete'
 
 #PS Var
 # PS1="\[\e[1;38;5;208m\]mindhunter@sephiroth:\W\[\\e[0m\] "

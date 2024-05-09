@@ -182,6 +182,7 @@ assign [class="Reddit"] $ws7
 # assign [class="Zathura"] $ws6
 assign [class="discord"] $ws10
 assign [class="syncplay"] $ws8
+# assign [class="mpv" ] $ws8
 assign [class="Geary"] $ws9
 assign [class="Mailspring"] $ws9
 assign [class="discord"] $ws10
@@ -340,12 +341,13 @@ exec_always feh --bg-scale /home/mindhunter/.config/wall.jpg
 # Applications
 exec /home/mindhunter/Downloads/Telegram/Telegram
 # exec /usr/bin/compton -f
-exec_always /home/mindhunter/.local/bin/picom -b -f --animations --animation-window-mass 0.5 --animation-for-open-window zoom --animation-stiffness 350 --fade-exclude 'class_g = "i3lock"'
-exec dunst
-exec /home/mindhunter/.bin/locker &
-exec firefox
 # exec rxvt -name irssi -title "irssi" -hold -e ~/.bin/urxvt
 # exec alacritty --class irssi --title "irssi" -e ~/.bin/urxvt
+exec /home/mindhunter/.local/bin/picom -b -f --animations --animation-window-mass 0.5 --animation-for-open-window zoom --animation-stiffness 350 --fade-exclude 'class_g = "i3lock"' --config /home/mindhunter/.config/picom.conf
+exec dunst
+exec /usr/bin/unclutter --timeout 1 
+exec /home/mindhunter/.bin/locker &
+exec firefox
 exec alacritty --class irssi --title "irssi" -e /usr/bin/irssi
 exec ~/.config/polybar/launch.sh
 exec ~/git_repos/xborder/xborders --border-width 3 --border-radius 10 --border-red 245 --border-green 224 --border-blue 220 &
