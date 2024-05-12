@@ -188,7 +188,7 @@ assign [class="Mailspring"] $ws9
 assign [class="discord"] $ws10
 assign [class="spotify"] $ws10
 
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 0
 for_window [class="Zenity"] resize set 500px 200px
 for_window [class="irssi" instance=".*irssi$.*"] floating enable, resize set 1400 800, move position center
 
@@ -350,7 +350,7 @@ exec /home/mindhunter/.bin/locker &
 exec firefox
 exec alacritty --class irssi --title "irssi" -e /usr/bin/irssi
 exec ~/.config/polybar/launch.sh
-exec ~/git_repos/xborder/xborders --border-width 3 --border-radius 10 --border-red 245 --border-green 224 --border-blue 220 &
+exec ~/git_repos/xborder/xborders --border-width 3 --border-radius 10 --border-red 235 --border-green 160 --border-blue 172 &
 
 # i3-gaps
 gaps inner 10

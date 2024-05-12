@@ -232,6 +232,39 @@ require('lazy').setup({
       vim.cmd.colorscheme 'tokyonight-night'
     end,
   },
+  {
+    'nvimdev/dashboard-nvim',
+   event = 'VimEnter',
+   config = function()
+     require('dashboard').setup {
+        shortcut_type = 'number',
+        config = {
+          header = {
+                        [[                                                                       ]],
+			[[                                                                       ]],
+			[[                                                                       ]],
+			[[                                                                       ]],
+			[[                                                                       ]],
+			[[                                                                       ]],
+			[[                                                                       ]],
+			[[                                                                       ]],
+                        [[           ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗          ]],
+                        [[           ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║          ]],
+                        [[           ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║          ]],
+                        [[           ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║          ]],
+                        [[           ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║          ]],
+                        [[           ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝          ]],
+                        [[                                                                       ]],
+                        [[                                                                       ]],
+			[[                                                                       ]],
+			[[                                                                       ]],
+
+        }
+      }
+    }
+   end,
+   dependencies = { {'nvim-tree/nvim-web-devicons'}}
+  },
 
   {
     -- Set lualine as statusline
@@ -423,7 +456,12 @@ require('telescope').setup {
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
-
+-- IBL require 
+require "ibl".overwrite {
+  exclude = {
+    filetypes = { "dashboard", "help", },
+}
+}
 -- Telescope live_grep in git root
 -- Function to find the git root directory based on the current buffer's path
 local function find_git_root()
@@ -644,6 +682,7 @@ local servers = {
 
 -- Setup neovim lua configuration
 require('neodev').setup()
+------ 
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -753,4 +792,5 @@ cmp.setup {
 -- Save cursor state before entering Neovim
 
 vim.cmd('highlight Visual guifg=#FBF136 guibg=none')
+
 
