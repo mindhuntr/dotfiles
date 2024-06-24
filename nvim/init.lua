@@ -402,8 +402,8 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
 -- Indentation config 
-vim.o.tabstop = 3
-vim.o.shiftwidth = 3
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
 vim.o.expandtab = true
 
 -- [[ Basic Keymaps ]]

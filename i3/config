@@ -292,9 +292,9 @@ bindsym $mod+shift+x exec ~/.bin/lock
 # bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 #
 # # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 && \
+bindsym XF86MonBrightnessUp exec xbacklight -inc 2 && \
 exec dunstify -t 450 -u low --icon=$iconpath/brightness-up.png -r 9823 "$(/home/mindhunter/.bin/brightness_bar)" # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 && \
+bindsym XF86MonBrightnessDown exec xbacklight -dec 2 && \
 exec dunstify -t 450 -u low --icon=$iconpath/brightness-down.png -r 9823 "$(/home/mindhunter/.bin/brightness_bar)"  # decrease screen brightness
 
 # # Touchpad controls
@@ -332,8 +332,12 @@ bindsym $mod+shift+z exec rofi -modi emoji -show emoji
 # for_window [class="URxvt" title="floating_urxvt$"] floating enable, resize set 1000px 600px
 
 # Tiling
-exec xset b off
 exec_always --no-startup-id /home/mindhunter/git_repos/i3-alternating-layout/alternating_layouts.py
+
+# Display properties 
+exec xset b off
+exec xset s off 
+exec xset -dpms
 
 # Wallpaper
 exec_always feh --bg-scale /home/mindhunter/.config/wall.jpg
@@ -348,7 +352,7 @@ exec dunst
 exec /usr/bin/unclutter --timeout 1 
 exec /home/mindhunter/.bin/locker &
 exec firefox
-exec alacritty --class irssi --title "irssi" -e /usr/bin/irssi
+exec alacritty --class irssi --title "irssi"
 exec ~/.config/polybar/launch.sh
 exec ~/git_repos/xborder/xborders --border-width 3 --border-radius 10 --border-red 235 --border-green 160 --border-blue 172 &
 
