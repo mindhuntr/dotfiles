@@ -179,6 +179,7 @@ assign [class="firefox"] $ws2
 assign [class="TelegramDesktop"] $ws3
 assign [class="Pinterest"] $ws5
 assign [class="Reddit"] $ws7
+assign [class="ZapZap"] $ws7
 # assign [class="Zathura"] $ws6
 assign [class="discord"] $ws10
 assign [class="syncplay"] $ws8
@@ -308,6 +309,7 @@ exec dunstify -t 450 -u low --icon=$iconpath/brightness-down.png -r 9823 "$(/hom
 
 # Custom bindings
 bindsym $mod+t exec ~/Downloads/Telegram/Telegram
+bindsym $mod+o exec zapzap
 bindsym $mod+i exec /home/mindhunter/.webcatalog/Reddit/Reddit
 bindsym $mod+p exec /home/mindhunter/.webcatalog/Pinterest/Pinterest
 bindsym $mod+b exec firefox

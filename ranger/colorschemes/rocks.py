@@ -19,7 +19,7 @@ class base(ColorScheme):
                 fg = 7
                 bg = 1
             if context.border:
-                fg = 238
+                fg = 7
             if context.image:
                 fg = 229
             if context.video:
