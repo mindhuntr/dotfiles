@@ -325,7 +325,8 @@ bindsym $mod+shift+0xffad move scratchpad
 bindsym $mod+0xffad scratchpad show
 bindsym $mod+shift+m exec ~/.bin/echo &
 bindsym $mod+g exec flameshot gui --raw | tesseract -l eng stdin stdout | xclip -selection clipboard
-bindsym $mod+n exec mailspring --password-store="gnome-libsecret"
+# bindsym $mod+n exec mailspring --password-store="gnome-libsecret"
+bindsym $mod+n exec ~/.bin/nightlight 
 bindsym $mod+x [floating] resize set 1400 800, move position center
 bindsym $mod+z exec ~/.bin/scrot
 bindsym $mod+shift+p exec LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify

@@ -181,6 +181,7 @@ alias mv="advmv -g "
 alias cp="advcp -g" 
 alias mt="neomutt" 
 alias cal="khal calendar"
+alias kiwi="java -jar ~/packages/KiwiServer.jar" 
 
 # alias th="tmuxp load ~/.config/tmuxp/default.yaml"
 
