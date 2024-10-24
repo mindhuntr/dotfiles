@@ -173,7 +173,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 assign [class="URxvt"] $ws1
-assign [class="irssi" instance=".*irssi$.*"] $ws4
+assign [class="weechat" instance=".*weechat$.*"] $ws4
 assign [class="Alacritty"] $ws1
 assign [class="firefox"] $ws2
 assign [class="TelegramDesktop"] $ws3
@@ -191,7 +191,7 @@ assign [class="spotify"] $ws10
 
 for_window [class="^.*"] border pixel 0
 for_window [class="Zenity"] resize set 500px 200px
-for_window [class="irssi" instance=".*irssi$.*"] floating enable, resize set 1400 800, move position center
+for_window [class="weechat" instance=".*weechat$.*"] floating enable, resize set 1400 800, move position center
 
 
 # reload the configuration file
@@ -355,9 +355,10 @@ exec dunst
 exec /usr/bin/unclutter --timeout 1 
 exec /home/mindhunter/.bin/locker &
 exec firefox
-exec alacritty --class irssi --title "irssi"
+exec alacritty --class weechat --title "weechat" -e "weechat" 
 exec ~/.config/polybar/launch.sh
 exec ~/git_repos/xborder/xborders --border-width 3 --border-radius 10 --border-red 235 --border-green 160 --border-blue 172 &
+exec ~/.bin/read_time
 
 # i3-gaps
 gaps inner 10

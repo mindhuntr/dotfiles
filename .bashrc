@@ -20,7 +20,7 @@ esac
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-HISTCONTROL=ignoreboth
+HISTCONTROL=ignoredups
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -284,7 +284,7 @@ export HISTSIZE=
 export HISTTIMEFORMAT="[%D %T] "
 # Change the file location because certain bash sessions truncate .bash_history file upon close.
 # http://superuser.com/questions/575479/bash-history-truncated-to-500-lines-on-each-login
-export HISTFILE=~/.bash_eternal_history
+# export HISTFILE=~/.bash_eternal_history
 # Force prompt to write history after every command.
 # http://superuser.com/questions/20900/bash-history-loss
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
@@ -300,4 +300,7 @@ eval `dircolors ~/git_repos/dircolors/bliss.dircolors`
 
 # Zoxide
 eval "$(zoxide init --cmd cd bash)"
+# eval "$(mcfly init bash)"
+# eval "$(starship init bash --print-full-init)" 
+
 bind '"\C-xe":call-last-kbd-macro'
