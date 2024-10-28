@@ -75,7 +75,7 @@ mods = "Alt"
 enabled = true
 mods = "None"
 
-[shell]
+[terminal.shell]
 args = ["--login"]
 program = "/bin/bash"
 
