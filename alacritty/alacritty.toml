@@ -75,6 +75,34 @@ mods = "Alt"
 enabled = true
 mods = "None"
 
+[[hints.enabled]]
+command = { program = "feh", args = [ "-B", "Black" ] } 
+post_processing = true
+hyperlinks = true
+persist = true
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+(?:jpg|jpeg|png|gif|bmp|webp|svg)"
+
+[hints.enabled.binding]
+key = "M"
+mods = "Alt"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "None"
+
+[[hints.enabled]]
+command = { program = "mpv" } 
+post_processing = true
+regex = '(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})'
+
+[hints.enabled.binding]
+key = "K"
+mods = "Alt"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "None"
+
 [terminal.shell]
 args = ["--login"]
 program = "/bin/bash"

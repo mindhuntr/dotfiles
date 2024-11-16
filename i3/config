@@ -183,7 +183,7 @@ assign [class="ZapZap"] $ws7
 # assign [class="Zathura"] $ws6
 assign [class="discord"] $ws10
 assign [class="syncplay"] $ws8
-# assign [class="mpv" ] $ws8
+assign [class="mpv" instance=".*newsboat_mpv.*"] $ws8
 assign [class="Geary"] $ws9
 assign [class="Mailspring"] $ws9
 assign [class="discord"] $ws10
@@ -357,7 +357,7 @@ exec /home/mindhunter/.bin/locker &
 exec firefox
 exec alacritty --class weechat --title "weechat" -e "weechat" 
 exec ~/.config/polybar/launch.sh
-exec ~/git_repos/xborder/xborders --border-width 3 --border-radius 10 --border-red 235 --border-green 160 --border-blue 172 &
+exec ~/git_repos/xborder/xborders --border-width 3 --border-radius 10 --border-red 180 --border-green 190 --border-blue 254 &
 exec ~/.bin/read_time
 
 # i3-gaps

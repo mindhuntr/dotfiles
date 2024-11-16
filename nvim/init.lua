@@ -441,7 +441,18 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
--- [[ Configure Telescope ]]
+-- [[ Configure Neo Tree ]] --
+require("neo-tree").setup({
+  window = {
+    width = 22,
+    mappings = {
+      ["l"] = "open",
+      ["<cr>"] = "focus_preview",
+    },
+  },
+})
+
+-- [[ Configure Telescope ]] --
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {

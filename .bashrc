@@ -174,13 +174,13 @@ alias tors="transgression-tui"
 alias scim="sc-im"
 alias wloc="curl ifconfig.co/city"
 alias upipe="systemctl --user restart pipewire"
-alias yt="ytfzf -c Y,R"
 alias sudo="sudo -E "
+alias yt="ytfzf"
 alias v="~/.bin/nv_curs"
 alias mv="advmv -g " 
 alias cp="advcp -g" 
-alias mt="neomutt" 
 alias cal="khal calendar"
+alias dn="dnote"
 alias kiwi="java -jar ~/packages/KiwiServer.jar" 
 
 # alias th="tmuxp load ~/.config/tmuxp/default.yaml"
@@ -225,8 +225,6 @@ bind -x '"\e[11~":"ʞ"'
 bind -x '"\e[12~":"chdir"'
 bind -x '"\e[13~":"aps"'
 bind '"\e[24~":"sudo "'
-bind 'set show-all-if-ambiguous on'
-bind 'TAB:menu-complete'
 
 #PS Var
 # PS1="\[\e[1;38;5;208m\]mindhunter@sephiroth:\W\[\\e[0m\] "
@@ -304,3 +302,5 @@ eval "$(zoxide init --cmd cd bash)"
 # eval "$(starship init bash --print-full-init)" 
 
 bind '"\C-xe":call-last-kbd-macro'
+bind 'TAB:menu-complete'
+# source ~/.local/share/blesh/ble.sh
