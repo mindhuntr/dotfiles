@@ -12,6 +12,7 @@ export PS2="\[\e[1;32m\]>>\[\e[0m\] "
 
 # Banner
 
+
 # timeout 2 ~/.bin/wttr 
 # cat ~/asciiart/umbrella.ansiwave
 # paste  <(~/.bin/banner) <(timeout 2 ~/.bin/wttr)

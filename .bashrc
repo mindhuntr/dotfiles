@@ -175,7 +175,7 @@ alias scim="sc-im"
 alias wloc="curl ifconfig.co/city"
 alias upipe="systemctl --user restart pipewire"
 alias sudo="sudo -E "
-alias yt="ytfzf"
+alias yt="yt-x"
 alias v="~/.bin/nv_curs"
 alias mv="advmv -g " 
 alias cp="advcp -g" 
@@ -304,3 +304,8 @@ eval "$(zoxide init --cmd cd bash)"
 bind '"\C-xe":call-last-kbd-macro'
 bind 'TAB:menu-complete'
 # source ~/.local/share/blesh/ble.sh
+#
+# Completion for aliases 
+source ~/.bash_completion.d/complete_alias 
+complete -F _complete_alias dn
+
