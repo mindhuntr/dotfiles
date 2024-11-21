@@ -12,4 +12,4 @@ windows:
 
   - window_name: svu 
     shell_command_before: 
-      - ssh mindhunter@svu
+      - ssh -X mindhunter@svu

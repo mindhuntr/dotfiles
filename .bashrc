@@ -182,6 +182,7 @@ alias cp="advcp -g"
 alias cal="khal calendar"
 alias dn="dnote"
 alias kiwi="java -jar ~/packages/KiwiServer.jar" 
+alias svback=" rsync -ahAtXU --delete --info=progress2 --exclude=/dev/* --exclude=/proc/* --exclude=/sys/* --exclude=/tmp/* --exclude=/mnt/* --exclude=/run/* --exclude=/media/* --exclude=Movies --exclude=Shows --exclude=/home/mindhunter/.cache/* --exclude='*Telegram Desktop*' --exclude=/home/mindhunter/syncplay/* /home/mindhunter/ svu:/mnt/backups/mindhunter/" 
 
 # alias th="tmuxp load ~/.config/tmuxp/default.yaml"
 
