@@ -58,7 +58,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec urxvt -chdir "`xcwd`"
-bindsym $mod+Return exec alacritty --working-directory "`xcwd`"
+bindsym $mod+Return exec kitty --title "Kitty" --working-directory "`xcwd`"
 
 # kill focused window
 bindsym $mod+q kill
@@ -174,7 +174,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 assign [class="URxvt"] $ws1
 assign [class="weechat" instance=".*weechat$.*"] $ws4
-assign [class="Alacritty"] $ws1
+assign [class="kitty"] $ws1
 assign [class="firefox"] $ws2
 assign [class="TelegramDesktop"] $ws3
 assign [class="Pinterest"] $ws5
@@ -293,9 +293,10 @@ bindsym $mod+shift+x exec ~/.bin/lock
 # bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 #
 # # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 2 && \
+bindsym XF86MonBrightnessUp exec --no-startup-id /home/mindhunter/.local/bin/xbacklight -inc 2 && \
 exec dunstify -t 450 -u low --icon=$iconpath/brightness-up.png -r 9823 "$(/home/mindhunter/.bin/brightness_bar)" # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 2 && \
+
+bindsym XF86MonBrightnessDown exec --no-startup-id /home/mindhunter/.local/bin/xbacklight -dec 2 && \
 exec dunstify -t 450 -u low --icon=$iconpath/brightness-down.png -r 9823 "$(/home/mindhunter/.bin/brightness_bar)"  # decrease screen brightness
 
 # # Touchpad controls
@@ -315,7 +316,7 @@ bindsym $mod+p exec /home/mindhunter/.webcatalog/Pinterest/Pinterest
 bindsym $mod+b exec firefox
 bindsym $mod+y exec flameshot gui
 bindsym $mod+shift+y exec flameshot full -c
-bindsym $mod+m exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle &&exec ~/.bin/mictoggle && $refresh_i3status
+bindsym $mod+m exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && exec ~/.bin/mictoggle && $refresh_i3status
 bindsym --release $mod+control+0xff54 workspace next
 bindsym --release $mod+control+0xff52 workspace prev
 bindsym $mod+c exec dunstctl close-all
@@ -350,12 +351,12 @@ exec /home/mindhunter/Downloads/Telegram/Telegram
 # exec /usr/bin/compton -f
 # exec rxvt -name irssi -title "irssi" -hold -e ~/.bin/urxvt
 # exec alacritty --class irssi --title "irssi" -e ~/.bin/urxvt
-exec /home/mindhunter/.local/bin/picom -b -f --animations --animation-window-mass 0.5 --animation-for-open-window zoom --animation-stiffness 350 --fade-exclude 'class_g = "i3lock"' --config /home/mindhunter/.config/picom.conf
+exec picom -b -f --animations --animation-window-mass 0.5 --animation-for-open-window zoom --animation-stiffness 350 --fade-exclude 'class_g = "i3lock"' --config /home/mindhunter/.config/picom.conf
 exec dunst
 exec /usr/bin/unclutter --timeout 1 
 exec /home/mindhunter/.bin/locker &
 exec firefox
-exec alacritty --class weechat --title "weechat" -e "weechat" 
+exec kitty --class weechat --title "weechat" -e "weechat" 
 exec ~/.config/polybar/launch.sh
 exec ~/git_repos/xborder/xborders --border-width 3 --border-radius 10 --border-red 242 --border-green 194 --border-blue 231 &
 exec ~/.bin/read_time
