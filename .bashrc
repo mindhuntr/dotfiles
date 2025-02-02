@@ -184,7 +184,7 @@ alias kiwi="java -jar ~/packages/KiwiServer.jar"
 alias upv="sudo tailscale set --exit-node=100.108.163.59"
 alias downv="sudo tailscale set --exit-node="
 alias beatprints="/home/mindhunter/git_repos/beatprints/bin/beatprints"
-alias clone="xrandr --output HDMI-1-0 --mode 1920x1080" 
+alias pbanner="neofetch --config ~/.config/neofetch/axylfetch.conf --source ~/pins/deja.jpeg --backend kitty" 
 
 # alias th="tmuxp load ~/.config/tmuxp/default.yaml"
 
@@ -283,6 +283,7 @@ export PATH=$PATH:/home/mindhunter/.spicetify
 export HISTFILESIZE=
 export HISTSIZE=
 export HISTTIMEFORMAT="[%D %T] "
+
 # Change the file location because certain bash sessions truncate .bash_history file upon close.
 # http://superuser.com/questions/575479/bash-history-truncated-to-500-lines-on-each-login
 # export HISTFILE=~/.bash_eternal_history
