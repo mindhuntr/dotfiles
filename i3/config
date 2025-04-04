@@ -45,10 +45,10 @@ set $iconpath "/home/mindhunter/.bin/dunsticons"
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +3%  && \
-exec dunstify -t 450 -r 9286 --icon=$iconpath/high-volume.png "$(/home/mindhunter/.bin/volume output "%v %p \n" -n -N dunstify -p -L summary)" && $refresh_i3status
+exec notify-send -t 450 -r 9286 --icon=$iconpath/high-volume.png "$(/home/mindhunter/.bin/volume output "%v %p \n" -n -N dunstify -p -L summary)" && $refresh_i3status
 
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -3% && \
-exec dunstify -t 450 -r 9286 --icon=$iconpath/volume-down.png "$(/home/mindhunter/.bin/volume output "%v %p \n" -n -N dunstify -p -L summary)" && $refresh_i3status
+exec notify-send -t 450 -r 9286 --icon=$iconpath/volume-down.png "$(/home/mindhunter/.bin/volume output "%v %p \n" -n -N dunstify -p -L summary)" && $refresh_i3status
 
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && exec ~/.bin/volmutetoggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && exec ~/.bin/mictoggle && $refresh_i3status
@@ -176,10 +176,11 @@ assign [class="URxvt"] $ws1
 assign [class="weechat" instance=".*weechat$.*"] $ws4
 assign [class="kitty"] $ws1
 assign [class="firefox"] $ws2
+assign [class="zen$"] $ws2
 assign [class="TelegramDesktop"] $ws3
 assign [class="Pinterest"] $ws5
 assign [class="Reddit"] $ws7
-assign [class="ZapZap"] $ws7
+assign [class="WhatsApp Desktop"] $ws7
 # assign [class="Zathura"] $ws6
 assign [class="discord"] $ws10
 assign [class="syncplay"] $ws8
@@ -310,10 +311,10 @@ exec dunstify -t 450 -u low --icon=$iconpath/brightness-down.png -r 9823 "$(/hom
 
 # Custom bindings
 bindsym $mod+t exec ~/Downloads/Telegram/Telegram
-bindsym $mod+o exec zapzap
+bindsym $mod+o exec /opt/WhatsApp\ Desktop/whatsapp-linux-desktop
 bindsym $mod+i exec /home/mindhunter/.webcatalog/Reddit/Reddit
 bindsym $mod+p exec /home/mindhunter/.webcatalog/Pinterest/Pinterest
-bindsym $mod+b exec firefox
+bindsym $mod+b exec zen-browser
 bindsym $mod+y exec flameshot gui
 bindsym $mod+shift+y exec flameshot full -c
 bindsym $mod+m exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && exec ~/.bin/mictoggle && $refresh_i3status
@@ -355,7 +356,7 @@ exec picom -b -f --animations --animation-window-mass 0.5 --animation-for-open-w
 exec dunst
 exec /usr/bin/unclutter --timeout 1 
 exec /home/mindhunter/.bin/locker &
-exec firefox
+exec zen-browser
 exec kitty --class weechat --title "weechat" -e "weechat" 
 exec ~/.config/polybar/launch.sh
 exec ~/git_repos/xborder/xborders --border-width 3 --border-radius 10 --border-red 242 --border-green 194 --border-blue 231 &
