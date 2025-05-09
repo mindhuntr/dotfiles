@@ -3,11 +3,8 @@ windows:
   - window_name: term
     shell_command_before: 
       - cd ~/ # first command 
-    layout: 1774,185x42,0,0{102x42,0,0,1,82x42,103,0[82x21,103,0,2,82x20,103,22,3]}
     panes:
-      - neomutt # pane no. 1
-      - neofetch --config ~/.config/neofetch/axylfetch.conf --source ~/pins/deja.jpeg --backend kitty --gap -35 # pane no. 2
-      - peaclock # pane no. 3
+      - ~/.bin/tmuxp_banner
 
   - window_name: svu 
     shell_command_before: 
