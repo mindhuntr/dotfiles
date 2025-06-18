@@ -1,0 +1,13 @@
+# Bindings 
+
+bind v exec "nohup mpv --x11-name=newsboat_mpv --ytdl-format='bestvideo[height<=?1080]+bestaudio/best' --script-opts-append=ytdl_hook-try_ytdl_first=yes %l >/dev/null 2>/dev/null &"
+bind f exec feh "%l"
+
+# Options 
+open-in-browser-command zen-browser "%l"
+status-placeholder "q:Quit | ENTER,l:Open | n:Next | r:Reload | R:Reload All | d:Mark Read | A:Mark All Read | /:Search
+global-section-name "All"
+
+# Colors 
+color-status color223 black bold
+

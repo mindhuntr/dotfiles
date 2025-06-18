@@ -31,4 +31,3 @@ export SPICE_PATH="$HOME/.config/spicetify"
 
 # Added by Toolbox App
 export PATH="$PATH:/home/mindhunter/.local/share/JetBrains/Toolbox/scripts"
-

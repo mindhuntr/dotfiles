@@ -192,7 +192,7 @@ assign [class="spotify"] $ws10
 
 for_window [class="^.*"] border pixel 0
 for_window [class="Zenity"] resize set 500px 200px
-for_window [class="weechat" instance=".*weechat$.*"] floating enable, resize set 1400 800, move position center
+# for_window [class="weechat" instance=".*weechat$.*"] floating enable, resize set 1400 800, move position center
 
 
 # reload the configuration file

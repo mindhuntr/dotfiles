@@ -116,43 +116,6 @@ require('lazy').setup({
       -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information 
     }
   },
---  {
---		"3rd/image.nvim",
---		config = function()
---			package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua"
---			package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua"
---			-- note: I removed redundant ';' from the ends of each path
---			--- default config
---			require("image").setup({
---			  backend = "kitty",
---			  integrations = {
---				markdown = {
---				  enabled = true,
---				  clear_in_insert_mode = false,
---				  download_remote_images = true,
---				  only_render_image_at_cursor = false,
---				  filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
---				},
---				neorg = {
---				  enabled = true,
---				  clear_in_insert_mode = false,
---				  download_remote_images = true,
---				  only_render_image_at_cursor = false,
---				  filetypes = { "norg" },
---				},
---			  },
---			  max_width = nil,
---			  max_height = nil,
---			  max_width_window_percentage = nil,
---			  max_height_window_percentage = 50,
---			  window_overlap_clear_enabled = false, -- toggles images when windows are overlapped
---			  window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "" },
---			  editor_only_render_when_focused = false, -- auto show/hide images when the editor gains/looses focus
---			  tmux_show_only_in_active_window = false, -- auto show/hide images in the correct Tmux window (needs visual-activity off)
---			  hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp" }, -- render image files as images when opened
---			})
---		end,
---  },
 
   {
     "kylechui/nvim-surround",
@@ -644,18 +607,28 @@ local on_attach = function(_, bufnr)
 end
 
 -- document existing key chains
-require('which-key').register {
-  ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-  ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-  ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-  ['<leader>h'] = { name = 'More git', _ = 'which_key_ignore' },
-  ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-  ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-  ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-  ['<leader>t'] = { name = 'New Tab', _ = 'which_key_ignore' },
-  ['<C-W>('] = { name = 'Previous Tab', _ = 'which_key_ignore' },
-  ['<C-W>)'] = { name = 'Next Tab', _ = 'which_key_ignore' },
-}
+-- require('which-key').register {
+--     { "<C-W>(", group = "Previous Tab" },
+--     { "<C-W>(_", hidden = true },
+--     { "<C-W>)", group = "Next Tab" },
+--     { "<C-W>)_", hidden = true },
+--     { "<leader>c", group = "[C]ode" },
+--     { "<leader>c_", hidden = true },
+--     { "<leader>d", group = "[D]ocument" },
+--     { "<leader>d_", hidden = true },
+--     { "<leader>g", group = "[G]it" },
+--     { "<leader>g_", hidden = true },
+--     { "<leader>h", group = "More git" },
+--     { "<leader>h_", hidden = true },
+--     { "<leader>r", group = "[R]ename" },
+--     { "<leader>r_", hidden = true },
+--     { "<leader>s", group = "[S]earch" },
+--     { "<leader>s_", hidden = true },
+--     { "<leader>t", group = "New Tab" },
+--     { "<leader>t_", hidden = true },
+--     { "<leader>w", group = "[W]orkspace" },
+--     { "<leader>w_", hidden = true },
+-- }
 
 -- mason-lspconfig requires that these setup functions are called in this order
 -- before setting up the servers.
@@ -678,6 +651,7 @@ local servers = {
   -- gopls = {},
   pyright = {},
   rust_analyzer = {},
+  solargraph = {},
   bashls = {},
   -- tsserver = {},
   lua_ls = {
@@ -689,6 +663,9 @@ local servers = {
     },
   },
 }
+
+-- Disable diagnostics for LSPs
+vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
 
 -- Setup neovim lua configuration
 require('neodev').setup()
@@ -705,16 +682,16 @@ mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
 }
 
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
-    }
-  end,
-}
+-- mason_lspconfig.setup_handlers {
+--   function(server_name)
+--     require('lspconfig')[server_name].setup {
+--       capabilities = capabilities,
+--       on_attach = on_attach,
+--       settings = servers[server_name],
+--       filetypes = (servers[server_name] or {}).filetypes,
+--     }
+--   end,
+-- }
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`

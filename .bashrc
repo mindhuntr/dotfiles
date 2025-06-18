@@ -153,7 +153,7 @@ alias duck="w3m duckduckgo.com"
 alias google="w3m google.com"
 alias b="w3m -B -cols 10"
 alias dns="ping 8.8.8.8"
-alias rss="newsboat"
+alias rss="newsraft"
 alias m="neomutt"
 alias fm="TERM=alacritty ranger"
 alias clock="tty-clock -c -t"
@@ -184,7 +184,9 @@ alias upv="sudo tailscale set --exit-node=100.72.58.114"
 alias downv="sudo tailscale set --exit-node="
 alias beatprints="/home/mindhunter/git_repos/beatprints/bin/beatprints"
 alias plyl="/home/mindhunter/.config/polybar/launch.sh"
-alias pbanner="neofetch --config ~/.config/neofetch/axylfetch.conf --source ~/pins/deja.jpeg --backend kitty" 
+alias rfupdate="sudo reflector --verbose --latest 5 --country 'India' --age 6 --sort rate --save /etc/pacman.d/mirrorlist" 
+alias cat="bat" 
+alias kt="kubectl"
 
 # alias th="tmuxp load ~/.config/tmuxp/default.yaml"
 
@@ -313,4 +315,3 @@ bind 'TAB:menu-complete'
 source ~/.bash_completion.d/complete_alias 
 complete -F _complete_alias dn
 # neofetch --source ~/pins/deja.jpeg --kitty
-
