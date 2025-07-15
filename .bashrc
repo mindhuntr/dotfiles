@@ -6,7 +6,6 @@
 # ╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝
 
 # dotfiles circa 2024 
-
                                                                                    
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
@@ -241,10 +240,10 @@ if [[ -z "$(ip netns identify)" ]]
    else
       ns_name="$(ip netns identify)"
       PS1="\[\e[1;38;5;210m\]\w\[\e[0m\] in \[\e[1;38;5;216m\]${ns_name}\n\[\e[0m\]\[\e[1;38;5;245m\]$\[\e[0m\] "
+fi
 
 # Set variables
 export XDG_RUNTIME_DIR=/run/user/1000
-fi
 
 PS3="% "
 
