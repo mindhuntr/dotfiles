@@ -779,5 +779,6 @@ cmp.setup {
 -- Save cursor state before entering Neovim
 
 vim.cmd('highlight Visual guifg=#FBF136 guibg=none')
-
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
 
