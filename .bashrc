@@ -185,6 +185,7 @@ alias beatprints="/home/mindhunter/git_repos/beatprints/bin/beatprints"
 alias plyl="/home/mindhunter/.config/polybar/launch.sh"
 alias rfupdate="sudo reflector --verbose --latest 5 --country 'India' --age 6 --sort rate --save /etc/pacman.d/mirrorlist" 
 alias cat="bat" 
+alias ff="fastfetch"
 alias kt="kubectl"
 
 # alias th="tmuxp load ~/.config/tmuxp/default.yaml"

@@ -33,7 +33,7 @@
 
     album_art: (
         method: Auto,
-        max_size_px: (width: 600, height: 600),
+        max_size_px: (width: 800, height: 800),
     ),
     keybinds: (
         global: {
