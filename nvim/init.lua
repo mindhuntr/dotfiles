@@ -302,6 +302,49 @@ require('lazy').setup({
   -- Image Viewing ( appears to work only with kitty )
   --- { 'edluffy/hologram.nvim' },
   -- Lua
+  --
+  {
+    "folke/snacks.nvim",
+    ---@type snacks.Config
+    opts = {
+      styles = {
+              -- INFO: show top right of screen
+              snacks_image = {
+                relative = "editor",
+                col = -10,
+              },
+            },
+
+      image = {
+        enabled = true,
+        doc = {
+            -- enable image viewer for documents
+            -- a treesitter parser must be available for the enabled languages.
+            enabled = true,
+            -- render the image inline in the buffer
+            -- if your env doesn't support unicode placeholders, this will be disabled
+            -- takes precedence over `opts.float` on supported terminals
+            inline = false,
+            -- render the image in a floating window
+            -- only used if `opts.inline` is disabled
+            float = true,
+            max_width = 50,
+            max_height = 50,
+            -- Set to `true`, to conceal the image text when rendering inline.
+            -- (experimental)
+            ---@param lang string tree-sitter language
+            ---@param type snacks.image.Type image type
+            conceal = function(lang, type)
+              -- only conceal math expressions
+              return type == "math"
+            end,
+          },
+        -- your image configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    }
+  },
   
   {
   "folke/zen-mode.nvim",
@@ -316,7 +359,7 @@ require('lazy').setup({
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
     }
-  }
+  },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
@@ -791,4 +834,5 @@ cmp.setup {
 vim.cmd('highlight Visual guifg=#FBF136 guibg=none')
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
+vim.wo.relativenumber = true 
 
