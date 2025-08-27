@@ -1,5 +1,5 @@
 # Bindings 
-bind v exec "nohup mpv --x11-name=newsboat_mpv --ytdl-format='bestvideo[height<=?1080]+bestaudio/best' --script-opts-append=ytdl_hook-try_ytdl_first=yes %l >/dev/null 2>/dev/null &"
+bind v exec "nohup mpv --title=feed_mpv --ytdl-format='bestvideo[height<=?1080]+bestaudio/best' --script-opts-append=ytdl_hook-try_ytdl_first=yes %l >/dev/null 2>/dev/null &"
 bind f exec feh "%l"
 bind b toggle-important
 bind w exec rdrview -B w3m "%l" 

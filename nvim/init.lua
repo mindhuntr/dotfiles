@@ -836,3 +836,18 @@ vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 vim.wo.relativenumber = true 
 
+-- Clipboard for wayland 
+
+vim.g.clipboard = {
+  name = "wl-clipboard",
+  copy = {
+    ["+"] = { "wl-copy", "--foreground", "--type", "text/plain" },
+    ["*"] = { "wl-copy", "--foreground", "--type", "text/plain" },
+  },
+  paste = {
+    ["+"] = { "wl-paste", "--no-newline" },
+    ["*"] = { "wl-paste", "--no-newline" },
+  },
+  cache_enabled = 1,
+}
+
