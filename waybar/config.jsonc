@@ -18,6 +18,12 @@
     "backlight",
     "clock"
   ],
+  "hyprland/window": {
+    "format": "{}",
+    "rewrite": {
+        "": "mindhunter@nocte" // Or any other text you want to display
+    }
+  },
   "hyprland/workspaces": {
     "disable-scroll": false,
     "all-outputs": true,

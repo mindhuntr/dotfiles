@@ -10,13 +10,14 @@ This is a collection of configs for the various programs I have used in the cour
 
 | Feature              | Package                                                        | 
 | -------------------- | -------------------------------------------------------------  |
-| Window Manager       | [`i3-gaps-rounded`](https://github.com/jbenden/i3-gaps-rounded)|
-| Compositor           | [`pijulius/picom`](https://github.com/pijulius/picom)          |
-| Terminal             | [`alacritty`](https://github.com/alacritty/alacritty)          |
+| Window Manager       | [`hyprland`](https://hypr.land/)                               |
+| Terminal             | [`kitty`](https://github.com/kovidgoyal/kitty)                 |
 | Editor               | [`neovim`](https://github.com/neovim/neovim)                   |
-| System Tray          | [`polybar`](https://github.com/vim/vim)                        |
+| System Tray          | [`waybar`](https://github.com/Alexays/Waybar)                  |
 | Application Launcher | [`rofi`](https://github.com/davatorium/rofi)                   |
 | Multiplexer          | [`tmux`](https://github.com/tmux/tmux)                         |
-| PDF Viewer           | [`zathura`](https://git.pwmt.org/pwmt/zathura.git)             |
+| PDF Viewer           | [`sioyek`](https://sioyek.info/)                               |
+| Feed Reader          | [`newsraft`](https://codeberg.org/newsraft/newsraft)           |
+
 
 
