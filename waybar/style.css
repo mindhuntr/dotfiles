@@ -29,7 +29,8 @@
 }
 
 #clock,
-#custom-power{
+#custom-dnd
+{
   /*background-color: rgba(15,27,53,0.9);*/
   background-color: #11111b; 
   margin-top: 6px; /* 与屏幕顶部留出距离 */
@@ -55,6 +56,7 @@
 
 #custom-reboot,
 #custom-mic,
+#custom-power,
 #bluetooth,
 #pulseaudio,
 #backlight,
@@ -129,5 +131,13 @@
 #window {
   font-weight: 500;
   font-style: italic;
+}
+
+#custom-dnd.enabled {
+    color: #ff6b6b; 
+}
+
+#custom-dnd.disabled {
+    color: #f9e2af; 
 }
 

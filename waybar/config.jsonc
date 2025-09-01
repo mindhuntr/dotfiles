@@ -7,7 +7,8 @@
     "hyprland/workspaces",
     "custom/lock",
     "custom/reboot",
-    "custom/power"
+    "custom/power",
+    "custom/dnd"
   ],
   "modules-center": ["hyprland/window"],
   "modules-right": [
@@ -143,6 +144,13 @@
       "exec": "~/.config/waybar/scripts/mic-status.sh",
       "interval": 2,
       "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+      "return-type": "json"
+  },
+
+  "custom/dnd": {
+      "exec": "~/.config/waybar/scripts/dnd-toggle.sh status",
+      "interval": 2,
+      "on-click": "~/.config/waybar/scripts/dnd-toggle.sh toggle",
       "return-type": "json"
   }
 }
