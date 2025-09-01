@@ -1,0 +1,34 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "d7588f6"
+hash = "56fdabc96fc1f4d53c96eb884b02a5be"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "d7588f6"
+hash = "3996fc74044bc44144b323686f887e1"
+
+[[plugin.deps]]
+use = "boydaihungst/pref-by-location"
+rev = "882e752"
+hash = "f45cf212024c85b5f0ea0423e27196a"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:no-status"
+rev = "d7588f6"
+hash = "3e023d31f29201efdac2a6ae35fedb78"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:mime-ext"
+rev = "d7588f6"
+hash = "4c49c446328c4553a4ccab7facc10b21"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-frappe"
+rev = "9cd2ac4"
+hash = "c769a6c541ae74b33a041ae1f00dcb40"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:dracula"
+rev = "9cd2ac4"
+hash = "c0bfefbff165007a76c0933ed0432e3f"
