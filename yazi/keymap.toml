@@ -132,7 +132,7 @@ keymap = [
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
 
 	# Tabs
-	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
+	{ on = "T", run = "tab_create --current", desc = "Create a new tab with CWD" },
 
 	{ on = "1", run = "tab_switch 0", desc = "Switch to first tab" },
 	{ on = "2", run = "tab_switch 1", desc = "Switch to second tab" },
@@ -164,6 +164,39 @@ keymap = [
 	{ on = "<A-v>", run = 'shell --block -- dark-send -v "$@"', desc = "Send videos"}, 
 	{ on = [ "u", "z" ], run = 'shell --block -- unzip "$@"', desc = "unzip file"}, 
 	{ on = [ "b", "g" ], run = 'shell --block -- magick convert "$@" ~/.config/wall.jpg && systemctl --user restart hyprpaper', desc = "wallpaper"}, 
+
+	# Custom Tagging 
+
+    #─────────────────────────── TOGGLE TAG(S) ────────────────────────────
+    # Toggle a tag (press any tag key)
+    # A tag hint window will show up.
+    # Simply press any tag key to toggle that tag for selected or hovered files/folders.
+    { on = "t", run = "plugin simple-tag -- toggle-tag --keys=*", desc = "Toggle tag with fixed tag key = *" },
+
+    { on = [ "m", "a" ], run = "plugin simple-tag -- toggle-tag", desc = "Toggle a tag (press any key)" },
+
+	 #─────────────────────────── REMOVE/DELETE TAG(S) ───────────────────────────
+    # Simply press any tag key to be removed from selected or hovered files/folders.
+    { on = [ "m", "d"], run = "plugin simple-tag -- remove-tag", desc = "Remove a tag (press any key)" },
+
+	 #  ───────────────────────────── CLEAR TAG(S) ─────────────────────────────
+    # Clear all tags from selected or hovered files/folders
+    { on = [ "m", "c" ], run = "plugin simple-tag -- clear", desc = "Clear all tags from selected or hovered files" },
+	
+    # Simply press any new tag key to filter files/folders containing that tag in current directory.
+    { on = [ "m", "f" ], run = "plugin simple-tag -- filter", desc = "Filter files/folders by a tag (press any key)" },
+
+ #  ─────────────────────── FILTER FILES/FOLDERS BY TAGS: ───────────────────────
+    # Available filter modes:
+    # and → Filter files which contain all of selected tags (Default if mode isn't specified).
+    # or → Filter files which contain at least one of selected tags.
+
+    # Filter files/folders by tags
+
+    # Filter files/folders by a tag (press any tag key)
+    # A tag hint window will show up.
+    # Simply press any new tag key to filter files/folders containing that tag in current directory.
+    { on = [ "t", "f" ], run = "plugin simple-tag -- filter", desc = "Filter files/folders by a tag (press any key)" },
 ]
 
 [tasks]

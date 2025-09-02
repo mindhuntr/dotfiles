@@ -701,6 +701,7 @@ require('mason').setup()
 --  define the property 'filetypes' to the map in question.
 local servers = {
   clangd = {},
+  marksman = {},
   -- gopls = {},
   pyright = {},
   rust_analyzer = {},

@@ -330,7 +330,7 @@ bindsym $mod+g exec flameshot gui --raw | tesseract -l eng stdin stdout | xclip 
 # bindsym $mod+n exec mailspring --password-store="gnome-libsecret"
 bindsym $mod+n exec ~/.bin/nightlight 
 bindsym $mod+x [floating] resize set 1400 800, move position center
-bindsym $mod+z exec ~/.bin/scrot
+bindsym $mod+z exec ~/.bin/scrot_actwin
 bindsym $mod+shift+p exec LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify
 bindsym $mod+shift+t bar mode toggle
 bindsym $mod+shift+z exec rofi -modi emoji -show emoji

@@ -4,7 +4,7 @@ windows:
     shell_command_before: 
       - cd ~/ # first command 
     panes:
-      - ~/.bin/tmuxp_banner
+      - ~/.bin/tmuxp_banner.sh
 
   - window_name: svu 
     shell_command_before: 

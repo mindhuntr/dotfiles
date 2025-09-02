@@ -16,7 +16,7 @@ configuration{
     sidebar-mode: true;
 }
 
-@theme "tokyonight"
+//@theme "tokyonight"
 
 element-text, element-icon , mode-switcher {
     background-color: inherit;
@@ -112,3 +112,5 @@ button selected {
   text-color: @blue;
 }
 
+
+@theme "/usr/share/rofi/themes/gruvbox-dark.rasi"

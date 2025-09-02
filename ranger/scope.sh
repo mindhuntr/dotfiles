@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Force ranger to refresh on terminal resize
+trap 'kill -WINCH $$' SIGWINCH
+
 set -o noclobber -o noglob -o nounset -o pipefail
 IFS=$'\n'
 
@@ -347,5 +350,6 @@ fi
 handle_extension
 handle_mime "${MIMETYPE}"
 handle_fallback
+
 
 exit 1

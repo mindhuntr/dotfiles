@@ -129,7 +129,6 @@ fi
 # alias clear="echo -ne '\033c'"
 alias c="clear"
 alias e="exit"
-alias install="sudo nala install"
 alias fuckoff="exit"
 alias rot13="tr 'A-Za-z' 'N-ZA-Mn-za-m'"
 # alias update="sudo apt update && sudo apt full-upgrade -y"
@@ -138,7 +137,7 @@ alias open="xdg-open"
 alias ..="cd .."
 alias r="cd ~-"
 alias grep="grep --color=always"
-alias ll="exa -l -g --color=always --icons"
+alias ll="exa -l --group-directories-first -g --color=always --icons"
 alias la="exa -d .* --color=always --icons"
 # alias ls="ls --color=always --group-directories-first"
 alias ls="exa --icons --group-directories-first"
@@ -148,9 +147,6 @@ alias tsm="transmission-remote"
 alias feh="feh -Tcatp"
 alias dark="dark-send"
 alias curs="source ~/.bashrc"
-alias cursx="xrdb ~/.Xresources"
-alias duck="w3m duckduckgo.com"
-alias google="w3m google.com"
 alias b="w3m -B -cols 10"
 alias dns="ping 8.8.8.8"
 alias rss="newsraft"
@@ -173,10 +169,8 @@ alias artprint="~/github/arttime/bin/artprint"
 alias tors="transgression-tui"
 alias scim="sc-im"
 alias wloc="curl ifconfig.co/city"
-alias upipe="systemctl --user restart pipewire"
 alias sudo="sudo -E "
 alias yt="yt-x --disown-streaming-process"
-alias v="~/.bin/nv_curs"
 alias mv="advmv -g " 
 alias cp="advcp -g" 
 alias cal="khal calendar"
@@ -187,8 +181,9 @@ alias beatprints="/home/mindhunter/git_repos/beatprints/bin/beatprints"
 alias plyl="/home/mindhunter/.config/polybar/launch.sh"
 alias rfupdate="sudo reflector --verbose --latest 5 --country 'India' --age 6 --sort rate --save /etc/pacman.d/mirrorlist" 
 alias cat="bat" 
+alias man="batman"
 alias ff="fastfetch"
-alias kt="kubectl"
+alias lsbc="lsblk | bat -p -l conf" 
 
 # alias th="tmuxp load ~/.config/tmuxp/default.yaml"
 
@@ -204,7 +199,7 @@ alias kt="kubectl"
 # echo -ne '\e]12;#0A40BC\a' # blue
 # echo -ne '\e]12;#d0d0d0\a'
 # echo -ne '\e]12;#708099\a'   # slate grey
-echo -ne '\e]12;#5F5F87\a'
+echo -ne '\e]12;#5F5F87\a' # light purple 
 
 # Cursor style
 echo -ne '\e[5 q'
@@ -252,7 +247,7 @@ PS3="% "
 
 #Bookmarks
 # source ~/.local/bin/bashmarks.sh
-source ~/.bin/func
+source ~/.bin/func.sh
 
 #shopt
 shopt -s autocd histreedit extglob globstar direxpand
