@@ -122,14 +122,15 @@ keymap = [
 	{ on = [ ",", "r" ], run = "sort random --reverse=no",                      desc = "Sort randomly" },
 
 	# Goto
-	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go home" },
-	{ on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Go ~/.config" },
-	{ on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Go ~/Downloads" },
-	{ on = [ "g", "t" ],       run = 'cd "~/Downloads/Telegram Desktop"',   desc = "Go ~/Downloads/Telegram Desktop" },
-	{ on = [ "g", "P" ],       run = "cd ~/Pictures",   desc = "Go ~/Pictures" },
-	{ on = [ "g", "p" ],       run = "cd ~/play",   desc = "Go ~/play" },
-	{ on = [ "g", "f" ],       run = "follow",           desc = "Follow hovered symlink" },
-	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
+	{ on = [ "g", "h" ],       run = "cd ~",                               desc = "Go home" },
+	{ on = [ "g", "r" ],       run = "back",                               desc = "Go to previous directory" },
+	{ on = [ "g", "c" ],       run = "cd ~/.config",                       desc = "Go ~/.config" },
+	{ on = [ "g", "d" ],       run = "cd ~/Downloads",                     desc = "Go ~/Downloads" },
+	{ on = [ "g", "t" ],       run = 'cd "~/Downloads/Telegram Desktop"',  desc = "Go ~/Downloads/Telegram Desktop" },
+	{ on = [ "g", "P" ],       run = "cd ~/Pictures",                      desc = "Go ~/Pictures" },
+	{ on = [ "g", "p" ],       run = "cd ~/play",                          desc = "Go ~/play" },
+	{ on = [ "g", "f" ],       run = "follow",                             desc = "Follow hovered symlink" },
+	{ on = [ "g", "<Space>" ], run = "cd --interactive",                   desc = "Jump interactively" },
 
 	# Tabs
 	{ on = "T", run = "tab_create --current", desc = "Create a new tab with CWD" },

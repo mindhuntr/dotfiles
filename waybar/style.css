@@ -19,7 +19,7 @@
 #tray{
   /*background-color: rgba(29,31,46, 0.95);*/
   /*background-color: rgba(15,27,53,0.9); */
-  background-color: #11111b; 
+  background-color: #1e1e2e; 
   padding: 4px 6px; /* 保持内部间距 */
   margin-top: 6px; /* 外部间距增加 */
   margin-left: 6px; /* 外部间距增加 */
@@ -32,7 +32,7 @@
 #custom-dnd
 {
   /*background-color: rgba(15,27,53,0.9);*/
-  background-color: #11111b; 
+  background-color: #1e1e2e; 
   margin-top: 6px; /* 与屏幕顶部留出距离 */
   margin-right: 6px;
   /*margin-bottom: 4px;*/
@@ -45,7 +45,7 @@
 #battery,
 #custom-lock{
   /*background-color: rgba(15,27,53,0.9);*/
-  background-color: #11111b; 
+  background-color: #1e1e2e; 
   margin-top: 6px; /* 与屏幕顶部留出距离 */
   margin-left: 6px;
   /*margin-bottom: 4px;*/
@@ -64,7 +64,7 @@
 #memory,
 #cpu{
  /*background-color: rgba(15,27,53,0.9);*/
-  background-color: #11111b; 
+  background-color: #1e1e2e; 
   margin-top: 6px; /* 与屏幕顶部留出距离 */
   /*margin-bottom: 4px;*/
   padding: 4px 2px; /* 保持内部间距 */

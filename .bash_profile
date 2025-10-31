@@ -19,13 +19,14 @@ export PS2="\[\e[1;32m\]>>\[\e[0m\] "
 # ~/.bin/prof
 # source ~/.bin/dir_colors
 source ~/.bashrc
-export PATH+=:~/.bin:/nix/store/iak6j9w29c6cj3pfkl3kk45vylx048b3-xidlehook-unknown/bin:~/.local/bin
+export PATH+=:~/.bin:/nix/store/iak6j9w29c6cj3pfkl3kk45vylx048b3-xidlehook-unknown/bin:~/.local/bin:~/.cargo/bin:~/flutter_sdk/flutter/bin
 export EDITOR=/home/mindhunter/.bin/nv_curs.sh
-export FZF_DEFAULT_OPTS='--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD'
+export FZF_DEFAULT_OPTS='--color=bg+:#302D41,bg:#1A1B26,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD'
 # export XDG_CONFIG_HOME="~/.config"
 export PATH=$PATH:/home/mindhunter/.spicetify
 export SPICE_PATH="$HOME/.config/spicetify"
 export LC_ALL=en_US.UTF-8
+export ANDROID_HOME=~/android_sdk
 
 ~/.bin/banner.sh
 # . "$HOME/.cargo/env"

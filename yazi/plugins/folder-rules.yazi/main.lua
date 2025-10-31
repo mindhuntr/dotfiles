@@ -5,6 +5,8 @@ local function setup()
 			ya.emit("sort", { "btime", reverse = true, dir_first = true })
 		elseif cwd:ends_with("pins") or cwd:ends_with("wallpapers") or cwd:ends_with("Telegram Desktop") then
 			ya.emit("sort", { "btime", reverse = true, dir_first = true })
+		elseif cwd:ends_with("Pictures") then
+			ya.emit("sort", { "btime", reverse = true, dir_first = true })
 		else
 			ya.emit("sort", { "natural", reverse = false, dir_first = true })
 		end

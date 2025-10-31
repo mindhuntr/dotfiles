@@ -10,6 +10,9 @@ status-placeholder "q:Quit | ENTER,l:Open | n:Next | r:Reload | R:Reload All | d
 global-section-name "All"
 
 # Colors 
-color-status color223 black bold
+color-status color147 color236
+color-list-item-unread color147 default 
+color-list-feed-unread color147 default 
+color-list-section-unread color147 default 
 color-list-item-important color166 default
 

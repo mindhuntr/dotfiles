@@ -699,6 +699,7 @@ require('mason').setup()
 --
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
+
 local servers = {
   clangd = {},
   marksman = {},
@@ -707,7 +708,7 @@ local servers = {
   rust_analyzer = {},
   solargraph = {},
   bashls = {},
-  -- tsserver = {},
+  ts_ls = {},
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -717,6 +718,7 @@ local servers = {
     },
   },
 }
+
 
 -- Disable diagnostics for LSPs
 vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
@@ -735,6 +737,27 @@ local mason_lspconfig = require 'mason-lspconfig'
 mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
 }
+-- Setup each server listed above
+local lspconfig = require('lspconfig')
+
+for server_name, config in pairs(servers) do
+  config.capabilities = capabilities
+  lspconfig[server_name].setup(config)
+end
+
+-- 🧩 Manually configure Dart LSP (not installed via Mason)
+lspconfig.dartls.setup({
+  cmd = { "dart", "language-server", "--protocol=lsp" },
+  filetypes = { "dart" },
+  capabilities = capabilities,
+  root_dir = function() return vim.loop.cwd() end,
+  settings = {
+    dart = {
+      completeFunctionCalls = true,
+      showTodos = true,
+    },
+  },
+})
 
 -- mason_lspconfig.setup_handlers {
 --   function(server_name)
