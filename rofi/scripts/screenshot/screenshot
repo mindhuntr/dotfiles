@@ -1,15 +1,15 @@
 #!/bin/bash
 
+# variables
+theme="$HOME/.config/rofi/scripts/screenshot/style.rasi"
+save_dir="$HOME/Pictures/screenshots"
+filename="capture-$(date +%Y-%m-%d-%s).png"
+
 if [ "$1" = "--clipboard-only" ]; then
   command="hyprshot --clipboard-only"
 else
   command="hyprshot -o $save_dir -f $filename $extra_args"
 fi
-
-# variables
-theme="$HOME/.config/rofi/scripts/screenshot/style.rasi"
-save_dir="$HOME/Pictures/screenshots/"
-filename="capture-$(date +%Y-%m-%d-%s).png"
 
 # options to be displayed
 region="󰆞"

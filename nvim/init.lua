@@ -53,6 +53,7 @@ P.S. You can delete this when you're done too. It's your config now :)
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+vim.g.have_nerd_font = true
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
@@ -89,11 +90,18 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automaticallyinit.lua
   'tpope/vim-sleuth',
 
+  -- Maximize toggle plugin
+  {
+    'declancm/maximize.nvim',
+    config = function() require('maximize').setup() end
+  },
+
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
+
     dependencies = {
       -- Automatically install LSPs to stdpath for neovim
       'williamboman/mason.nvim',
@@ -106,6 +114,7 @@ require('lazy').setup({
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
     },
+
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -116,6 +125,20 @@ require('lazy').setup({
       -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information 
     }
   },
+
+  -- For transparency 
+  -- { 
+  --   "xiyaowong/transparent.nvim",
+  --   config = function()
+  --       require("transparent").setup({
+  --         extra_groups = {
+  --         "NeoTreeNormal",
+  --         "NeoTreeNormalNC",
+  --         "NormalFloat",
+  --         },
+  --       })
+  --   end
+  -- },
 
   {
     "kylechui/nvim-surround",
@@ -195,38 +218,18 @@ require('lazy').setup({
       vim.cmd.colorscheme 'tokyonight-night'
     end,
   },
-  {
-    'nvimdev/dashboard-nvim',
-   event = 'VimEnter',
-   config = function()
-     require('dashboard').setup {
-        shortcut_type = 'number',
-        config = {
-          header = {
-                        [[                                                                       ]],
-			[[                                                                       ]],
-			[[                                                                       ]],
-			[[                                                                       ]],
-			[[                                                                       ]],
-			[[                                                                       ]],
-			[[                                                                       ]],
-			[[                                                                       ]],
-                        [[           ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗          ]],
-                        [[           ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║          ]],
-                        [[           ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║          ]],
-                        [[           ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║          ]],
-                        [[           ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║          ]],
-                        [[           ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝          ]],
-                        [[                                                                       ]],
-                        [[                                                                       ]],
-			[[                                                                       ]],
-			[[                                                                       ]],
 
-        }
-      }
-    }
-   end,
-   dependencies = { {'nvim-tree/nvim-web-devicons'}}
+  -- Nvim Startup 
+  {
+    'goolord/alpha-nvim',
+    dependencies = {
+        'nvim-mini/mini.icons',
+        'nvim-lua/plenary.nvim'
+    },
+    config = function ()
+        require'alpha'.setup(require'alpha.themes.dashboard'.config)
+    end
+
   },
 
   {
@@ -350,11 +353,19 @@ require('lazy').setup({
   "folke/zen-mode.nvim",
     opts = {
       window = {
+        backdrop = 0.95,
         options = {
           number = false,
           relativenumber = false,
         }
-      }
+      },
+      plugins = {
+        kitty = { 
+          enabled = true,
+          font = "+0",
+        } 
+      } 
+
     -- your configuration comes here
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
@@ -430,15 +441,19 @@ vim.o.expandtab = true
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.api.nvim_set_keymap('n', 'WW', '[[:SoftPencil<CR>:ZenMode<CR>]]', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'zz', '[[:q!<CR>]]', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'ff', '[[:Neotree<CR>]]', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>9', '[[:tabprevious<CR>]]', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>0', '[[:tabnext<CR>]]', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>t', '[[:tabnew<CR>]]', { noremap = true, silent = true })
 vim.keymap.set('n','<leader>pv', vim.cmd.Ex, { desc = 'Explore' })
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- Neotree (File tree) 
+vim.keymap.set('n', 'ff', '[[:Neotree<CR>]]', { desc = "Open File tree" }, { noremap = true, silent = true })
+
+-- Tab Control 
+vim.keymap.set('n', '<leader>t', '[[:tabnew<CR>]]', { desc = "Open new tab" }, { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>9', '[[:tabprevious<CR>]]', { desc = "Go to previous tab" }, { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>0', '[[:tabnext<CR>]]', { desc = "Go to next tab" }, { noremap = true, silent = true })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
@@ -661,27 +676,27 @@ end
 
 -- document existing key chains
 -- require('which-key').register {
---     { "<C-W>(", group = "Previous Tab" },
---     { "<C-W>(_", hidden = true },
---     { "<C-W>)", group = "Next Tab" },
---     { "<C-W>)_", hidden = true },
---     { "<leader>c", group = "[C]ode" },
---     { "<leader>c_", hidden = true },
---     { "<leader>d", group = "[D]ocument" },
---     { "<leader>d_", hidden = true },
---     { "<leader>g", group = "[G]it" },
---     { "<leader>g_", hidden = true },
---     { "<leader>h", group = "More git" },
---     { "<leader>h_", hidden = true },
---     { "<leader>r", group = "[R]ename" },
---     { "<leader>r_", hidden = true },
---     { "<leader>s", group = "[S]earch" },
---     { "<leader>s_", hidden = true },
---     { "<leader>t", group = "New Tab" },
---     { "<leader>t_", hidden = true },
---     { "<leader>w", group = "[W]orkspace" },
---     { "<leader>w_", hidden = true },
--- }
+--     { "", group = "Previous Tab" },
+--     { "", desc = "<leader>r_", hidden = true },
+--     { "", group = "[R]ename" },
+--     { "", desc = "<leader>h_", hidden = true },
+--     { "", group = "More git" },
+--     { "", group = "[S]earch" },
+--     { "", group = "New Tab" },
+--     { "", desc = "<leader>s_", hidden = true },
+--     { "", desc = "<leader>t_", hidden = true },
+--     { "", group = "[W]orkspace" },
+--     { "", desc = "<leader>g_", hidden = true },
+--     { "", desc = "<leader>d_", hidden = true },
+--     { "", group = "Next Tab" },
+--     { "", desc = "<C-W>(_", hidden = true },
+--     { "", group = "[G]it" },
+--     { "", desc = "<C-W>)_", hidden = true },
+--     { "", desc = "<leader>c_", hidden = true },
+--     { "", group = "[C]ode" },
+--     { "", group = "[D]ocument" },
+--     { "", desc = "<leader>w_", hidden = true },
+--   }
 
 -- mason-lspconfig requires that these setup functions are called in this order
 -- before setting up the servers.
@@ -719,9 +734,12 @@ local servers = {
   },
 }
 
+-- Dartls setup 
+vim.lsp.enable("dartls")
+
 
 -- Disable diagnostics for LSPs
-vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
 
 -- Setup neovim lua configuration
 require('neodev').setup()
@@ -737,38 +755,6 @@ local mason_lspconfig = require 'mason-lspconfig'
 mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
 }
--- Setup each server listed above
-local lspconfig = require('lspconfig')
-
-for server_name, config in pairs(servers) do
-  config.capabilities = capabilities
-  lspconfig[server_name].setup(config)
-end
-
--- 🧩 Manually configure Dart LSP (not installed via Mason)
-lspconfig.dartls.setup({
-  cmd = { "dart", "language-server", "--protocol=lsp" },
-  filetypes = { "dart" },
-  capabilities = capabilities,
-  root_dir = function() return vim.loop.cwd() end,
-  settings = {
-    dart = {
-      completeFunctionCalls = true,
-      showTodos = true,
-    },
-  },
-})
-
--- mason_lspconfig.setup_handlers {
---   function(server_name)
---     require('lspconfig')[server_name].setup {
---       capabilities = capabilities,
---       on_attach = on_attach,
---       settings = servers[server_name],
---       filetypes = (servers[server_name] or {}).filetypes,
---     }
---   end,
--- }
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
@@ -874,4 +860,22 @@ vim.g.clipboard = {
   },
   cache_enabled = 1,
 }
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.synchronization = {
+  dynamicRegistration = false,
+  willSave = false,
+  willSaveWaitUntil = false,
+  didSave = true,
+}
+
+local orig_apply = vim.lsp.util.apply_text_document_edit
+vim.lsp.util.apply_text_document_edit = function(edit, idx, enc)
+  local ok, err = pcall(orig_apply, edit, idx, enc)
+  if not ok then
+    vim.schedule(function()
+      vim.notify("dartls: ignored invalid didChange edit (" .. tostring(err) .. ")", vim.log.levels.WARN)
+    end)
+  end
+end
 
