@@ -126,19 +126,19 @@ require('lazy').setup({
     }
   },
 
-  -- For transparency 
-  -- { 
-  --   "xiyaowong/transparent.nvim",
-  --   config = function()
-  --       require("transparent").setup({
-  --         extra_groups = {
-  --         "NeoTreeNormal",
-  --         "NeoTreeNormalNC",
-  --         "NormalFloat",
-  --         },
-  --       })
-  --   end
-  -- },
+  -- For transparency across neovim
+  {
+    "xiyaowong/transparent.nvim",
+    config = function()
+        require("transparent").setup({
+          extra_groups = {
+          "NeoTreeNormal",
+          "NeoTreeNormalNC",
+          "NormalFloat",
+          },
+        })
+    end
+  },
 
   {
     "kylechui/nvim-surround",
@@ -219,6 +219,14 @@ require('lazy').setup({
     end,
   },
 
+  -- ASCII art collection for startup
+  {
+    "MaximilianLloyd/ascii.nvim",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
+  },
+
   -- Nvim Startup 
   {
     'goolord/alpha-nvim',
@@ -226,8 +234,28 @@ require('lazy').setup({
         'nvim-mini/mini.icons',
         'nvim-lua/plenary.nvim'
     },
+
     config = function ()
-        require'alpha'.setup(require'alpha.themes.dashboard'.config)
+
+      local dashboard = require("alpha.themes.dashboard")
+      local ascii = require("ascii")
+
+      dashboard.section.header.val = ascii.art.text.neovim.sharp
+
+      dashboard.section.buttons.val = {
+         dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
+         dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
+         dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
+         dashboard.button("t", "  Find text", ":Telescope live_grep <CR>"),
+         dashboard.button("c", "  Configuration", ":e ~/.config/nvim/init.lua<CR>"),
+         dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
+      }
+
+      dashboard.section.footer.val = "Audiatur et altera pars"
+
+      require("alpha").setup(
+        dashboard.config
+      )
     end
 
   },
@@ -353,7 +381,7 @@ require('lazy').setup({
   "folke/zen-mode.nvim",
     opts = {
       window = {
-        backdrop = 0.95,
+        backdrop = 1,
         options = {
           number = false,
           relativenumber = false,
@@ -475,7 +503,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- [[ Configure Neo Tree ]] --
 require("neo-tree").setup({
   window = {
-    width = 22,
+    width = 25,
     mappings = {
       ["l"] = "open",
       ["<cr>"] = "focus_preview",
@@ -725,13 +753,29 @@ local servers = {
   bashls = {},
   ts_ls = {},
   lua_ls = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-      -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-      -- diagnostics = { disable = { 'missing-fields' } },
+    settings = {
+      Lua = {
+        runtime = {
+          version = "LuaJIT",
+        },
+
+        diagnostics = {
+          globals = {
+            'vim',
+            'require',
+          },
+        },
+
+        workspace = {
+          library = vim.api.nvim_get_runtime_file("", true)
+        },
+
+        telemetry = { enable = false },
+        -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+        -- diagnostics = { disable = { 'missing-fields' } },
+      },
     },
-  },
+  }
 }
 
 -- Dartls setup 
@@ -842,6 +886,10 @@ cmp.setup {
 -- Save cursor state before entering Neovim
 
 vim.cmd('highlight Visual guifg=#FBF136 guibg=none')
+
+-- Change Neotree highlight for transparency
+vim.cmd('highlight NeoTreeCursorLine guibg=#2a2a40 guifg=NONE')
+
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 vim.wo.relativenumber = true 
@@ -860,22 +908,3 @@ vim.g.clipboard = {
   },
   cache_enabled = 1,
 }
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.synchronization = {
-  dynamicRegistration = false,
-  willSave = false,
-  willSaveWaitUntil = false,
-  didSave = true,
-}
-
-local orig_apply = vim.lsp.util.apply_text_document_edit
-vim.lsp.util.apply_text_document_edit = function(edit, idx, enc)
-  local ok, err = pcall(orig_apply, edit, idx, enc)
-  if not ok then
-    vim.schedule(function()
-      vim.notify("dartls: ignored invalid didChange edit (" .. tostring(err) .. ")", vim.log.levels.WARN)
-    end)
-  end
-end
-

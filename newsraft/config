@@ -4,6 +4,9 @@ bind f exec feh "%l"
 bind b toggle-important
 bind w exec rdrview -B w3m "%l" 
 
+
+notification-command "notify-send -t 2000 -i /home/mindhunter/.config/hypr/notify_icons/newspaper.png -c custom-notification 'Newsraft bought %q news'"
+
 # Options 
 open-in-browser-command zen-browser "%l"
 status-placeholder "q:Quit | ENTER,l:Open | n:Next | r:Reload | R:Reload All | d:Mark Read | A:Mark All Read | /:Search

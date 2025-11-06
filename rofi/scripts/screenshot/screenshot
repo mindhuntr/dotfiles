@@ -6,27 +6,30 @@ save_dir="$HOME/Pictures/screenshots"
 filename="capture-$(date +%Y-%m-%d-%s).png"
 
 if [ "$1" = "--clipboard-only" ]; then
-  command="hyprshot --clipboard-only"
+  command="grimblast -w 0.5 -n copy"
+  fullpath=""
 else
-  command="hyprshot -o $save_dir -f $filename $extra_args"
+  command="grimblast -w 0.5 -n save"
+  fullpath="$save_dir/$filename"
 fi
 
 # options to be displayed
 region="󰆞"
 output=""
 window=""
-folder=""
+# folder=""
 
 selected="$(echo -e "$region\n$output\n$window\n" | rofi -dmenu -theme "${theme}" -kb-row-left "h" -kb-row-right "l")"
+
 case $selected in
 $region)
-  $command -m region
+  $command area "$fullpath"
   ;;
 $output)
-  $command -m output
+  $command screen "$fullpath"
   ;;
 $window)
-  $command -m window
+  $command active "$fullpath"
   ;;
 # $folder)
 #   ~/.config/rofi/scripts/screenshot/screenshot_selection

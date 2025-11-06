@@ -1,13 +1,15 @@
 #!/usr/bin/env bash 
 
+iconpath="/home/mindhunter/.config/hypr/notify_icons"
 
 toggle() { 
     if [[ "$(makoctl mode)" == "default" ]]; then
-        makoctl mode -r default
-        makoctl mode -s do-not-disturb 
+        notify-send -c "custom-notification" -u low "DND On" -t 1000 -r 9825 --icon=$iconpath/bell-off.png
+        makoctl mode -a do-not-disturb 
     else
         makoctl mode -r do-not-disturb
-        makoctl mode -s default
+        notify-send -c "custom-notification" -u low "DND Off" -t 1000 -r 9825 --icon=$iconpath/bell-ring.png
+
     fi
 } 
 status() {
