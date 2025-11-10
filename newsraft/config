@@ -5,7 +5,7 @@ bind b toggle-important
 bind w exec rdrview -B w3m "%l" 
 
 
-notification-command "notify-send -t 2000 -i /home/mindhunter/.config/hypr/notify_icons/newspaper.png -c custom-notification 'Newsraft bought %q news'"
+notification-command "notify-send -t 2000 -i /home/mindhunter/.config/hypr/notify_icons/newspaper.png -c system-notification 'Newsraft bought %q news'"
 
 # Options 
 open-in-browser-command zen-browser "%l"

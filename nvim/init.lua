@@ -888,7 +888,7 @@ cmp.setup {
 vim.cmd('highlight Visual guifg=#FBF136 guibg=none')
 
 -- Change Neotree highlight for transparency
-vim.cmd('highlight NeoTreeCursorLine guibg=#2a2a40 guifg=NONE')
+vim.cmd('highlight NeoTreeCursorLine guibg=#45475a guifg=NONE')
 
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
@@ -908,3 +908,4 @@ vim.g.clipboard = {
   },
   cache_enabled = 1,
 }
+

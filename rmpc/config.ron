@@ -33,7 +33,7 @@
 
     album_art: (
         method: Auto,
-        max_size_px: (width: 800, height: 800),
+        max_size_px: (width: 900, height: 1000),
     ),
     keybinds: (
         global: {
@@ -127,19 +127,26 @@
                 (
                     size: "40%",
                     pane: Pane(AlbumArt),
+                    borders: "ALL",
                 ),
                 (
-                    size: "60%",
+                    size: "70%",
                     pane: Split(
                         direction: Vertical,
                             panes: [
+                                (size: "7%", borders: "NONE", pane: Split(direction: Vertical,panes: [
+                                    (size: "3", borders: "ALL", pane: Component("custom_song_table_header")),
+                                    ])
+                                ),
                                 (
-                                    size: "20",
+                                    size: "25",
                                     pane: Pane(Queue),
+                                    borders: "ALL",
                                 ),
                                 (
                                     size: "100%",
                                     pane: Pane(Cava),
+                                    borders: "ALL",
                                 )
                             ],
                         ),
@@ -147,35 +154,61 @@
                 ],
             ),
         ),
+
         (
-            name: "Directories",
-            border_type: None,
-            pane: Pane(Directories),
+        name: "Directories", 
+        pane: Split(
+            direction: Horizontal,
+            panes: [
+                (size: "100%", borders: "ALL", pane: Pane(Directories)),
+                ]
+            )
+        ),
+
+        (
+        name: "Artists", 
+        pane: Split(
+            direction: Horizontal,
+            panes: [
+                (size: "100%", borders: "ALL", pane: Pane(Artists)),
+                ]
+            )
         ),
         (
-            name: "Artists",
-            border_type: None,
-            pane: Pane(Artists),
+        name: "Album Artists", 
+        pane: Split(
+            direction: Horizontal,
+            panes: [
+                (size: "100%", borders: "ALL", pane: Pane(AlbumArtists)),
+                ]
+            )
         ),
         (
-            name: "Album Artists",
-            border_type: None,
-            pane: Pane(AlbumArtists),
+        name: "Albums", 
+        pane: Split(
+            direction: Horizontal,
+            panes: [
+                (size: "100%", borders: "ALL", pane: Pane(Albums)),
+                ]
+            )
         ),
         (
-            name: "Albums",
-            border_type: None,
-            pane: Pane(Albums),
+        name: "Playlists", 
+        pane: Split(
+            direction: Horizontal,
+            panes: [
+                (size: "100%", borders: "ALL", pane: Pane(Playlists)),
+                ]
+            )
         ),
         (
-            name: "Playlists",
-            border_type: None,
-            pane: Pane(Playlists),
-        ),
-        (
-            name: "Search",
-            border_type: None,
-            pane: Pane(Search),
+        name: "Search", 
+        pane: Split(
+            direction: Horizontal,
+            panes: [
+                (size: "100%", borders: "ALL", pane: Pane(Search)),
+                ]
+            )
         ),
     ],
 )

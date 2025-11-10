@@ -7,7 +7,7 @@ sleep 5
 
 sendNotification() {
     local message="$1"
-    notify-send -e -u critical "Battery Low!" "$message" -i $iconpath/battery-alert.png
+    notify-send -e -u critical -c system-notification "Battery Low!" "\n$message" -i $iconpath/battery-alert.png
 }
 
 notify_count=0

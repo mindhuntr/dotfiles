@@ -16,7 +16,7 @@ sendNotification() {
     local title="$1"
     local message="$2"
     local icon=$iconpath/${3}.png
-    notify-send -i "$icon" -u low -t 2000 -r 9825 "$title" "$message"
+    notify-send -i "$icon" -u low -t 2000 -r 9825 -c system-notification "$title" "\n$message"
 }
 
 # Runs full time in background
