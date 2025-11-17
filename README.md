@@ -5,6 +5,7 @@ This is a collection of configs for the various programs I have used in the cour
 ## Screenshots 
 ![Home](screenshots/screenshot_home.png)
 ![Work](screenshots/screenshot_work.png)
+![Music](screenshots/screenshot_rmpc.png)
 
 ## Programs 
 
