@@ -116,6 +116,7 @@ require('lazy').setup({
     },
 
   },
+
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -171,6 +172,7 @@ require('lazy').setup({
 
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
+
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -489,6 +491,9 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+-- Maximize toggle 
+vim.keymap.set('n', '<leader>m', '[[:Maximize<CR>]]', { desc = "Maximize Window" }, { noremap = true, silent = true })
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -767,8 +772,15 @@ local servers = {
         },
 
         workspace = {
-          library = vim.api.nvim_get_runtime_file("", true)
-        },
+          checkThirdParty = false,
+          library = {
+              vim.env.VIMRUNTIME
+              -- Depending on the usage, you might want to add additional paths here.
+              -- "${3rd}/luv/library"
+              -- "${3rd}/busted/library",
+          }
+        }
+      },
 
         telemetry = { enable = false },
         -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
@@ -776,11 +788,9 @@ local servers = {
       },
     },
   }
-}
 
 -- Dartls setup 
 vim.lsp.enable("dartls")
-
 
 -- Disable diagnostics for LSPs
 -- vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end

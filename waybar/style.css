@@ -1,86 +1,86 @@
-/* 全局设置 */
+@import "themes/mocha.css";
+
 * {
   font-family: "JetBrainsMonoMedium Nerd Font", "Font Awesome 6 Free", "Font Awesome 6 Free Solid";
-  /*font-weight: bold;*/
   font-size: 16px;
-  color: #dcdfe1;
+  color: @text;
 }
 
-/* 透明 Waybar 背景 */
 #waybar {
   background-color: rgba(0, 0, 0, 0);
   border: none;
   box-shadow: none;
 }
 
-/* 所有模块统一风格 */
 #workspaces,
 #window,
 #tray{
-  /*background-color: rgba(29,31,46, 0.95);*/
-  /*background-color: rgba(15,27,53,0.9); */
-  background-color: #1e1e2e; 
-  padding: 4px 6px; /* 保持内部间距 */
-  margin-top: 6px; /* 外部间距增加 */
-  margin-left: 6px; /* 外部间距增加 */
-  margin-right: 6px; /* 外部间距增加 */
+  background-color: @mantle;
+  padding: 0.4rem; 
+  margin: 0.5rem 0.5rem 0px 0.5rem;
   border-radius: 10px;
   border-width: 0px;
 }
 
-#clock,
-#custom-dnd
-{
-  /*background-color: rgba(15,27,53,0.9);*/
-  background-color: #1e1e2e; 
-  margin-top: 6px; /* 与屏幕顶部留出距离 */
-  margin-right: 6px;
-  /*margin-bottom: 4px;*/
-  padding: 4px 2px; /* 保持内部间距 */
-  border-radius: 0 10px 10px 0;
-  border-width: 0px;
-}
-
-#network,
-#battery,
-#custom-lock{
-  /*background-color: rgba(15,27,53,0.9);*/
-  background-color: #1e1e2e; 
-  margin-top: 6px; /* 与屏幕顶部留出距离 */
-  margin-left: 6px;
-  /*margin-bottom: 4px;*/
-  padding: 4px 2px; /* 保持内部间距 */
-  border-radius: 10px 0 0 10px;
-  border-width: 0px;
-}
-
+#custom-lock,
 #custom-reboot,
 #custom-mic,
 #custom-power,
-#bluetooth,
-#pulseaudio,
-#backlight,
-#custom-temperature,
-#memory,
-#cpu{
- /*background-color: rgba(15,27,53,0.9);*/
-  background-color: #1e1e2e; 
-  margin-top: 6px; /* 与屏幕顶部留出距离 */
-  /*margin-bottom: 4px;*/
-  padding: 4px 2px; /* 保持内部间距 */
+#custom-dnd
+{
+  background-color: @mantle; 
+  padding: 0.2rem;
+  margin: 0.5rem 0px 0px 0px;
   border-width: 0px;
 }
 
-#custpm-temperature.critical,
+#custom-lock{
+  margin-top: 0.5rem;
+  border-radius: 10px 0px 0px 10px;
+  border-width: 0px;
+}
+
+#custom-dnd{
+  margin-top: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 0 10px 10px 0;
+  border-width: 0px;
+} 
+
+#window {
+  font-weight: 500;
+  font-style: italic;
+}
+
+#battery,
+#pulseaudio,
+#custom-mic,
+#backlight,
+#clock{
+  background-color: @mantle; 
+  padding: 0.4rem 0.5rem 0.4rem 0.5rem;
+  margin: 0.5rem 0px 0px 0px;
+}
+
+#battery{
+  margin-top: 0.5rem;
+  border-radius: 10px 0px 0px 10px;
+  border-width: 0px;
+}
+
+#clock{
+  margin-top: 0.5rem;
+  border-radius: 0 10px 10px 0;
+  border-width: 0px;
+} 
+
 #pulseaudio.muted {
-  color: #FF0000;
+  color: @red;
   padding-top: 0;
 }
 
-/* 鼠标悬停变亮一点 */
 #bluetooth:hover,
 #network:hover,
-/*#tray:hover,*/
 #backlight:hover,
 #battery:hover,
 #pulseaudio:hover,
@@ -91,17 +91,11 @@
 #custom-lock:hover,
 #custom-reboot:hover,
 #custom-power:hover,
-/*#workspaces:hover,*/
-#window:hover {
-  background-color: rgba(70, 75, 90, 0.9);
-}
-
-/* 工作区激活状态高亮 */
+#custom-dnd:hover,
+#custom-mic:hover,
+#window:hover,
 #workspaces button:hover{
-  background-color: rgba(97, 175, 239, 0.2);
-  padding: 2px 8px;
-  margin: 0 2px;
-  border-radius: 10px;
+  background-color: @surface0;
 }
 
 #workspaces button.active {
@@ -128,11 +122,6 @@
   color: #888888;
 }
 
-#window {
-  font-weight: 500;
-  font-style: italic;
-}
-
 #custom-dnd.enabled {
     color: #ff6b6b; 
 }
@@ -142,6 +131,6 @@
 }
 
 #custom-mic.muted {
-    color: #ff6b6b; 
+    color: @red; 
 }
 

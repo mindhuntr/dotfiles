@@ -14,9 +14,9 @@ toggle() {
 } 
 status() {
     if [[ "$(makoctl mode)" == "default" ]]; then
-        echo '{"text": " ", "tooltip": "Do Not Disturb Off", "class": "disabled"}'
+        echo '{"text": "  ", "tooltip": "Do Not Disturb Off", "class": "disabled"}'
     else
-        echo '{"text": " ", "tooltip": "Do Not Disturb On", "class": "enabled"}'
+        echo '{"text": "  ", "tooltip": "Do Not Disturb On", "class": "enabled"}'
     fi
 }
 

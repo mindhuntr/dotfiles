@@ -45,7 +45,7 @@ inputbar {
   enabled:                     true;
   spacing:                     15px;
   margin:                      0px;
-  background-color:            transparent;
+  background-color:            @background;
   children:                    [ "textbox-prompt-colon", "entry" ];
 }
 

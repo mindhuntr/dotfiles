@@ -6,7 +6,7 @@
     password: None,
     theme: Some("catppuccin"),
     cache_dir: None,
-    on_song_change: None,
+    on_song_change: ["~/.config/rmpc/notify.sh"],
     volume_step: 5,
     scrolloff: 0,
     wrap_navigation: false,
@@ -97,7 +97,7 @@
         },
         queue: {
             "D":       DeleteAll,
-            "l":    Play,
+            "l":       Play,
             "<C-s>":   Save,
             "a":       AddToPlaylist,
             "d":       Delete,
@@ -209,7 +209,7 @@
                 (size: "100%", borders: "ALL", pane: Pane(Search)),
                 ]
             )
-        ),
+        )
     ],
 )
 
