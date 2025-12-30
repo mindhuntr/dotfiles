@@ -2,7 +2,7 @@
 
 * {
   font-family: "JetBrainsMonoMedium Nerd Font", "Font Awesome 6 Free", "Font Awesome 6 Free Solid";
-  font-size: 16px;
+  font-size: 1.1rem;
   color: @text;
 }
 
@@ -24,7 +24,6 @@
 
 #custom-lock,
 #custom-reboot,
-#custom-mic,
 #custom-power,
 #custom-dnd
 {
@@ -32,10 +31,11 @@
   padding: 0.2rem;
   margin: 0.5rem 0px 0px 0px;
   border-width: 0px;
+  color: @subtext0;
 }
 
 #custom-lock{
-  margin-top: 0.5rem;
+  margin: 0.5rem 0 0 0.5rem;
   border-radius: 10px 0px 0px 10px;
   border-width: 0px;
 }
@@ -52,9 +52,54 @@
   font-style: italic;
 }
 
+#custom-mic, 
+#pulseaudio { 
+  background-color: @mantle; 
+  padding: 0.5rem;
+  margin: 0.5rem 0px 0px 0.5rem;
+  border-width: 0px;
+} 
+
+#custom-mic { 
+  margin: 0.5rem 0.5rem 0px 0px;
+  border-radius: 0 10px 10px 0;
+  color: @subtext0;
+} 
+
+#pulseaudio { 
+  border-radius: 10px 0px 0px 10px;
+  color: @subtext0;
+} 
+
+#pulseaudio-slider {
+    background-color: @mantle;
+    padding: 0.4rem;
+    margin: 0.5rem 0px 0px 0px;
+}
+
+#pulseaudio-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    background-color: @text;
+    border: none;
+    box-shadow: none;
+}
+#pulseaudio-slider trough {
+    min-height: 10px;
+    min-width: 7rem;
+    border-radius: 5px;
+    background: @surface0;
+}
+
+#pulseaudio-slider highlight {
+    min-width: 10px;
+    border-radius: 5px;
+    background: @subtext0;
+}
+
 #battery,
-#pulseaudio,
-#custom-mic,
 #backlight,
 #clock{
   background-color: @mantle; 
@@ -66,17 +111,22 @@
   margin-top: 0.5rem;
   border-radius: 10px 0px 0px 10px;
   border-width: 0px;
+  color: @subtext0;
+}
+
+#backlight{
+  color: @subtext0;
 }
 
 #clock{
   margin-top: 0.5rem;
   border-radius: 0 10px 10px 0;
   border-width: 0px;
+  color: @subtext0;
 } 
 
 #pulseaudio.muted {
   color: @red;
-  padding-top: 0;
 }
 
 #bluetooth:hover,
@@ -98,6 +148,15 @@
   background-color: @surface0;
 }
 
+#workspaces button {
+  background: @surface0;
+  border: none;
+  border-radius: 30px;
+  color: @surface0;
+  padding: 2px 12px 0px 12px;
+  margin: 0 2px;
+}
+
 #workspaces button.active {
   background: transparent;
   color: #ffffff;
@@ -106,20 +165,17 @@
   border-radius: 10px;
 }
 
-#workspaces button {
-  background: transparent;
-  border: none;
-  color: #888888;
-  padding: 2px 8px;
-  margin: 0 2px;
+#workspaces button.active {
+  background-color: #a6adc8;
+  padding: 0px 25px 0px 25px;
 }
 
 #workspaces button.active label {
-  color: #cba6f7; 
+  color: #1e1e2e; 
 }
 
 #workspaces button label {
-  color: #888888;
+  color: @surface0;
 }
 
 #custom-dnd.enabled {
@@ -127,7 +183,7 @@
 }
 
 #custom-dnd.disabled {
-    color: #f9e2af; 
+    color: @subtext0; 
 }
 
 #custom-mic.muted {

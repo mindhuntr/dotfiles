@@ -402,6 +402,13 @@ require('lazy').setup({
     }
   },
 
+  {
+    "benomahony/uv.nvim",
+    opts = {
+      picker_integration = true,
+    },
+  }
+
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -752,9 +759,12 @@ local servers = {
   clangd = {},
   marksman = {},
   -- gopls = {},
-  pyright = {},
+  pyright = {
+    root_markers = { "pyrightconfig.json", "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile", ".git" }
+  },
+  cssls = {},
   rust_analyzer = {},
-  solargraph = {},
+  ruby_lsp = {},
   bashls = {},
   ts_ls = {},
   lua_ls = {

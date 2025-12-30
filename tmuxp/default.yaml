@@ -4,7 +4,7 @@ windows:
     shell_command_before: 
       - cd ~/ # first command 
     panes:
-      - ~/.bin/tmuxp_banner.sh
+      - fastfetch
 
   - window_name: svu 
     shell_command_before: 

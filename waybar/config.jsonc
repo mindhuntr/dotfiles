@@ -4,17 +4,17 @@
   "height": 32,
   "spacing": 0,
   "modules-left": [
-    "hyprland/workspaces",
     "custom/lock",
     "custom/reboot",
     "custom/power",
-    "custom/dnd"
+    "custom/dnd",
+    "pulseaudio",
+    "pulseaudio/slider",
+    "custom/mic"
   ],
-  "modules-center": ["hyprland/window"],
+  "modules-center": ["hyprland/workspaces"],
   "modules-right": [
     "battery",
-    "pulseaudio",
-    "custom/mic",
     "backlight",
     "clock",
     "tray"
@@ -46,17 +46,17 @@
     }
   },
   "custom/lock": {
-  "format": "<span color='#89dceb'>  </span>",
+  "format": "  ",
   "on-click": "hyprlock",
   "tooltip": true
   },
   "custom/reboot": {
-    "format": "<span color='#fab387'>  </span>",
+    "format": "   ",
     "on-click": "systemctl reboot",
     "tooltip": true
   },
   "custom/power": {
-    "format": "<span color='#f38ba8'>  </span>",
+    "format": "  ",
     "on-click": "systemctl poweroff",
     "tooltip": true
   },
@@ -74,15 +74,15 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "<span color='#a6e3a1'> {icon} </span>{capacity}%",
+    "format": "{icon} {capacity}%",
     "format-charging": " 󱐋{capacity}%",
 	  "interval": 1,
     "format-icons": ["󰂎", "󰁼", "󰁿", "󰂁", "󰁹"],
     "tooltip": true
   },
   "pulseaudio": {
-    "format": "<span color='#00FF7F'>{icon}</span>{volume}%",
-    "format-muted": "<span color='#FF4040'> 󰖁 </span>0%",
+    "format": "{icon}",
+    "format-muted": "󰓄",
     "format-icons": {
       "headphone": "<span color='#BF00FF'>  </span>",
       "hands-free": "<span color='#BF00FF'>  </span>",
@@ -91,9 +91,7 @@
       "portable": "<span color='#00FFFF'>  </span>",
       "car": "<span color='#FFA500'>  </span>",
       "default": [
-        "<span color='#808080'> </span>",
-        "<span color='#f9e2af'> </span>",
-        "<span color='#b4befe' > </span>"
+        "󰓃"
       ]
     },
     "on-click-right": "pavucontrol -t 3",
@@ -101,10 +99,17 @@
     "tooltip": false,
     "tooltip-format": "当前系统声音: {volume}%"
   },
+
+  "pulseaudio/slider": {
+      "min": 0,
+      "max": 100,
+      "orientation": "horizontal"
+  },
+
   "clock": {
     "interval": 1,
     "timezone": "Asia/Chengdu",
-    "format": "<span color='#cba6f7'> </span>{:%I:%M} ",
+    "format": " {:%I:%M} ",
     "tooltip": true,
     "tooltip-format": "{:L%Y:%m:%d, %A}"
   },
@@ -114,17 +119,17 @@
   },
   "backlight": {
     "device": "intel_backlight",
-    "format": "<span color='#FFD700'>{icon}</span> {percent}%",
+    "format": "{icon} {percent}%",
     "format-icons": [
-      "<span color='#696969'>󰃞</span>", 
-      "<span color='#A9A9A9'>󰃝</span>",
-      "<span color='#FFFF66'>󰃟</span>", 
-      "<span color='#FFD700'>󰃠</span>"  
+      "󰃞", 
+      "󰃝",
+      "󰃟", 
+      "󰃠"  
     ]
   }, 
   "custom/mic": {
       "exec": "~/.config/waybar/scripts/mic-status.sh",
-      "interval": 2,
+      "interval": 1,
       "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
       "return-type": "json"
   },
