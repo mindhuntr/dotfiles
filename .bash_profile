@@ -28,7 +28,7 @@ export SPICE_PATH="$HOME/.config/spicetify"
 export LC_ALL=en_US.UTF-8
 export ANDROID_HOME=~/android_sdk
 
-~/.bin/banner.sh
+# ~/.bin/banner.sh
 # . "$HOME/.cargo/env"
 
 # Added by Toolbox App
