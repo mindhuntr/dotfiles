@@ -12,7 +12,6 @@ export PS2="\[\e[1;32m\]>>\[\e[0m\] "
 
 # Banner
 
-
 # timeout 2 ~/.bin/wttr 
 # cat ~/asciiart/umbrella.ansiwave
 # paste  <(~/.bin/banner) <(timeout 2 ~/.bin/wttr)
@@ -32,4 +31,4 @@ export ANDROID_HOME=~/android_sdk
 # . "$HOME/.cargo/env"
 
 # Added by Toolbox App
-export PATH="$PATH:/home/mindhunter/.local/share/JetBrains/Toolbox/scripts"
+export PATH="$PATH:/home/mindhunter/.local/share/JetBrains/Toolbox/scripts:/home/mindhunter/.local/share/gem/ruby/3.4.0/bin"
