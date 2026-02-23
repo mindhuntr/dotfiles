@@ -16,7 +16,6 @@ https://jvns.ca/atom.xml
 https://hamvocke.com/feed.xml
 http://elpis.ws/rss.xml 
 https://lonami.dev/blog/atom.xml 
-https://social.alexschroeder.ch/@alex/feed.rss  
 https://journal.paoloamoroso.com/feed/  
 https://crescentro.se/posts/rss.xml
 https://82mhz.net/index.xml  
@@ -111,5 +110,8 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCPD_bxCRGpmmeQcbe2kpPaA "Fi
 
 @Jobs 
 https://www.fossjobs.net/rss/all/
+
+@Changelog
+https://tailscale.com/changelog/index.xml
 
 
