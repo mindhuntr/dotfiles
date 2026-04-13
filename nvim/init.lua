@@ -407,7 +407,7 @@ require('lazy').setup({
     opts = {
       picker_integration = true,
     },
-  }
+  },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
