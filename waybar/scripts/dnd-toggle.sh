@@ -6,10 +6,11 @@ toggle() {
     if [[ "$(makoctl mode)" == "default" ]]; then
         notify-send -c "system-notification" -u low "DND On" -t 1000 -r 9825 --icon=$iconpath/bell-off.png
         makoctl mode -a do-not-disturb 
+        dms ipc call notifications toggleDoNotDisturb
     else
         makoctl mode -r do-not-disturb
         notify-send -c "system-notification" -u low "DND Off" -t 1000 -r 9825 --icon=$iconpath/bell-ring.png
-
+        dms ipc call notifications toggleDoNotDisturb
     fi
 } 
 status() {

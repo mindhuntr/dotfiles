@@ -54,6 +54,8 @@ P.S. You can delete this when you're done too. It's your config now :)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
+vim.g.instant_username = "mindhunter"
+
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
@@ -127,7 +129,7 @@ require('lazy').setup({
     }
   },
 
-  -- For transparency across neovim
+  -- For transparency across neovim (neotree)
   {
     "xiyaowong/transparent.nvim",
     config = function()
@@ -136,6 +138,17 @@ require('lazy').setup({
           "NeoTreeNormal",
           "NeoTreeNormalNC",
           "NormalFloat",
+          "TelescopeNormal",
+          "TelescopeBorder",
+          "TelescopePromptNormal",
+          "TelescopePromptBorder",
+          "TelescopePromptTitle",
+          "TelescopePreviewNormal",
+          "TelescopePreviewBorder",
+          "TelescopePreviewTitle",
+          "TelescopeResultsNormal",
+          "TelescopeResultsBorder",
+          "TelescopeResultsTitle",
           },
         })
     end
@@ -291,7 +304,7 @@ require('lazy').setup({
   -- Fuzzy Finder (files, lsp, etc)
   {
     'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
+    branch = 'master',
     dependencies = {
       'nvim-lua/plenary.nvim',
       -- Fuzzy Finder Algorithm which requires local dependencies to be built.
@@ -407,6 +420,10 @@ require('lazy').setup({
     opts = {
       picker_integration = true,
     },
+  }, 
+
+  {
+    "jbyuki/instant.nvim"
   },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
@@ -493,10 +510,19 @@ vim.keymap.set('n', '<leader>9', '[[:tabprevious<CR>]]', { desc = "Go to previou
 vim.keymap.set('n', '<leader>0', '[[:tabnext<CR>]]', { desc = "Go to next tab" }, { noremap = true, silent = true })
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+
+-- Jump to next error only
+vim.keymap.set("n", "]e", function()
+  vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR })
+end)
+vim.keymap.set("n", "[e", function()
+  vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR })
+end)
+
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+vim.keymap.set('n', '<leader>fd', '[[:filetype detect<CR>]]', { desc = "Detect filetype" })
+
 
 -- Maximize toggle 
 vim.keymap.set('n', '<leader>m', '[[:Maximize<CR>]]', { desc = "Maximize Window" }, { noremap = true, silent = true })
@@ -603,71 +629,71 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
 -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
-vim.defer_fn(function()
-  require('nvim-treesitter.configs').setup {
-    -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
-
-    -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-    auto_install = false,
-
-    highlight = { enable = true },
-    indent = { enable = true },
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = '<c-space>',
-        node_incremental = '<c-space>',
-        scope_incremental = '<c-s>',
-        node_decremental = '<M-space>',
-      },
-    },
-    textobjects = {
-      select = {
-        enable = true,
-        lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-        keymaps = {
-          -- You can use the capture groups defined in textobjects.scm
-          ['aa'] = '@parameter.outer',
-          ['ia'] = '@parameter.inner',
-          ['af'] = '@function.outer',
-          ['if'] = '@function.inner',
-          ['ac'] = '@class.outer',
-          ['ic'] = '@class.inner',
-        },
-      },
-      move = {
-        enable = true,
-        set_jumps = true, -- whether to set jumps in the jumplist
-        goto_next_start = {
-          [']m'] = '@function.outer',
-          [']]'] = '@class.outer',
-        },
-        goto_next_end = {
-          [']M'] = '@function.outer',
-          [']['] = '@class.outer',
-        },
-        goto_previous_start = {
-          ['[m'] = '@function.outer',
-          ['[['] = '@class.outer',
-        },
-        goto_previous_end = {
-          ['[M'] = '@function.outer',
-          ['[]'] = '@class.outer',
-        },
-      },
-      swap = {
-        enable = true,
-        swap_next = {
-          ['<leader>a'] = '@parameter.inner',
-        },
-        swap_previous = {
-          ['<leader>A'] = '@parameter.inner',
-        },
-      },
-    },
-  }
-end, 0)
+-- vim.defer_fn(function()
+--   require('nvim-treesitter.configs').setup {
+--     -- Add languages to be installed here that you want installed for treesitter
+--     ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
+-- 
+--     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
+--     auto_install = false,
+-- 
+--     highlight = { enable = true },
+--     indent = { enable = true },
+--     incremental_selection = {
+--       enable = true,
+--       keymaps = {
+--         init_selection = '<c-space>',
+--         node_incremental = '<c-space>',
+--         scope_incremental = '<c-s>',
+--         node_decremental = '<M-space>',
+--       },
+--     },
+--     textobjects = {
+--       select = {
+--         enable = true,
+--         lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+--         keymaps = {
+--           -- You can use the capture groups defined in textobjects.scm
+--           ['aa'] = '@parameter.outer',
+--           ['ia'] = '@parameter.inner',
+--           ['af'] = '@function.outer',
+--           ['if'] = '@function.inner',
+--           ['ac'] = '@class.outer',
+--           ['ic'] = '@class.inner',
+--         },
+--       },
+--       move = {
+--         enable = true,
+--         set_jumps = true, -- whether to set jumps in the jumplist
+--         goto_next_start = {
+--           [']m'] = '@function.outer',
+--           [']]'] = '@class.outer',
+--         },
+--         goto_next_end = {
+--           [']M'] = '@function.outer',
+--           [']['] = '@class.outer',
+--         },
+--         goto_previous_start = {
+--           ['[m'] = '@function.outer',
+--           ['[['] = '@class.outer',
+--         },
+--         goto_previous_end = {
+--           ['[M'] = '@function.outer',
+--           ['[]'] = '@class.outer',
+--         },
+--       },
+--       swap = {
+--         enable = true,
+--         swap_next = {
+--           ['<leader>a'] = '@parameter.inner',
+--         },
+--         swap_previous = {
+--           ['<leader>A'] = '@parameter.inner',
+--         },
+--       },
+--     },
+--   }
+-- end, 0)
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
@@ -759,9 +785,7 @@ local servers = {
   clangd = {},
   marksman = {},
   -- gopls = {},
-  pyright = {
-    root_markers = { "pyrightconfig.json", "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile", ".git" }
-  },
+  basedpyright = {},
   cssls = {},
   rust_analyzer = {},
   ruby_lsp = {},
@@ -801,6 +825,23 @@ local servers = {
 
 -- Dartls setup 
 vim.lsp.enable("dartls")
+
+-- basedpyright
+vim.lsp.config("basedpyright", {
+  settings = {
+    basedpyright = {
+      analysis = {
+        typeCheckingMode = "standard",
+        diagnosticSeverityOverrides = {
+          reportOptionalMemberAccess = "none",
+          reportAttributeAccessIssue = "none",
+          reportArgumentType = "none"
+        }
+      },
+    },
+  },
+})
+
 
 -- Disable diagnostics for LSPs
 -- vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end

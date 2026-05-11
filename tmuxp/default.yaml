@@ -3,6 +3,7 @@ windows:
   - window_name: term
     shell_command_before: 
       - cd ~/ # first command 
+      - clear
     panes:
       - fastfetch
 

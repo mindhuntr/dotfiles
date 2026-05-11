@@ -55,11 +55,21 @@
             width_percent: 45,
         ),
         (
-            prop: (kind: Property(Duration),
+            prop: (
+                kind: Property(Duration),
                 default: (kind: Text("-"))
             ),
             width_percent: 10,
             alignment: Right,
+
+        ),
+            
+        (
+            prop: (
+                kind: Sticker("like"),
+            ),
+            width_percent: 5,
+            alignment: Right, 
         ),
     ],
     header: (

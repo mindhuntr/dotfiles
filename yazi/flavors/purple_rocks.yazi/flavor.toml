@@ -25,8 +25,8 @@ count_cut      = { fg = "#282a36", bg = "#ff5555" }
 count_selected = { fg = "#282a36", bg = "#f1fa8c" }
 
 # Border
-border_symbol = "│"
-border_style  = { fg = "#7282b5" }
+border_symbol = "│" 
+border_style  = { fg = "#7282b5", hidden = true }
 
 # : }}}
 
@@ -154,20 +154,20 @@ title_error = { fg = "#ff5555" }
 [filetype]
 rules = [
 	# Audio 
-	{ name = "*{mp3,wav,flac,aac,ogg,m4a,wma,alac,aiff,aif,opus,mid,midi,amr,au,ra,rm,oga,dsf,dff}", fg = "#afd7af" },
+	{ url = "*{mp3,wav,flac,aac,ogg,m4a,wma,alac,aiff,aif,opus,mid,midi,amr,au,ra,rm,oga,dsf,dff}", fg = "#afd7af" },
 
 	# Images 
-	{ name = "*{jpg,jpeg,png,gif,bmp,webp,heic,heif,avif,tiff,tif,svg,ico,raw,cr2,nef,orf,arw,raf,dng,psd,ai,eps}", fg = "#ffffaf"},
+	{ url = "*{jpg,jpeg,png,gif,bmp,webp,heic,heif,avif,tiff,tif,svg,ico,raw,cr2,nef,orf,arw,raf,dng,psd,ai,eps}", fg = "#ffffaf"},
 
 	# Videos 
-	{ name = "*{mp4,mkv,avi,webm,flv,wmv,mov,mpg,mpeg,m4v,3gp,3g2,ts,mts,m2ts,vob,ogv}", fg = "#d7af87"},
+	{ url = "*{mp4,mkv,avi,webm,flv,wmv,mov,mpg,mpeg,m4v,3gp,3g2,ts,mts,m2ts,vob,ogv}", fg = "#d7af87"},
 
 	# Archives
-	{ name = "*{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#ff79c6" },
+	{ url = "*{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#ff79c6" },
 
 	# Documents
-	{ name = "*{pdf,rtf}", fg = "#f38ba8" },
-	{ name = "*{doc,docx}", fg = "#cba6f7" },
+	{ url = "*{pdf,rtf}", fg = "#f38ba8" },
+	{ url = "*{doc,docx}", fg = "#cba6f7" },
 
 	# Fallback
 	{ url = "*", fg = "#afafaf" },

@@ -46,7 +46,7 @@
             "H":       PreviousTab,
             "1":       SwitchToTab("Queue"),
             "2":       SwitchToTab("Directories"),
-            "3":       SwitchToTab("Artists"),
+            "3":       SwitchToTab("Playlists"),
             "4":       SwitchToTab("Albums"),
             "5":       SwitchToTab("Playlists"),
             "6":       SwitchToTab("Search"),
@@ -94,6 +94,12 @@
             "<Esc>":   Close,
             "K":       MoveUp,
             "D":       Delete,
+            "m":       Rate(kind: Like(), current: false),
+            "M":       Rate(kind: Neutral(), current: false),
+            "d":       Rate(kind: Dislike(), current: false),
+            "s":       Save(kind: Playlist(name: "Liked Songs", duplicates_strategy: Ask)),
+            "S":       DeleteFromPlaylist(kind: Playlist(name: "Liked Songs", confirmation: true))
+
         },
         queue: {
             "D":       DeleteAll,
@@ -166,11 +172,12 @@
         ),
 
         (
-        name: "Artists", 
+        name: "Playlists", 
         pane: Split(
             direction: Horizontal,
             panes: [
-                (size: "100%", borders: "ALL", pane: Pane(Artists)),
+                (size: "100%", borders: "ALL", pane: Pane(Playlists)),
+
                 ]
             )
         ),

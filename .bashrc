@@ -312,6 +312,7 @@ bind 'TAB:menu-complete'
 # Completion for aliases 
 source ~/.bash_completion.d/complete_alias 
 complete -F _complete_alias dn
+complete -F _complete_alias dark
 
 # Completion for jrnl
 source ~/.bash_completion.d/jrnl_completions
