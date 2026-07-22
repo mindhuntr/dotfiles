@@ -65,41 +65,41 @@ color_prompt=
 fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
+# if [ "$color_prompt" = yes ]; then
+# PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# else
+# PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+# fi
+# unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-;;
-*)
-;;
-esac
+# case "$TERM" in
+# xterm*|rxvt*)
+# PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+# ;;
+# *)
+# ;;
+# esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
 test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-alias ls='ls --color=auto'
+# alias ls='ls --color=auto'
 #alias dir='dir --color=auto'
 #alias vdir='vdir --color=auto'
 
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+# alias grep='grep --color=auto'
+# alias fgrep='fgrep --color=auto'
+# alias egrep='egrep --color=auto'
 fi
 
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+# alias ll='ls -alF'
+# alias la='ls -A'
+# alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -139,7 +139,6 @@ alias r="cd ~-"
 alias grep="grep --color=always"
 alias ll="exa -l --group-directories-first -g --color=always --icons"
 alias la="exa -d .* --color=always --icons"
-# alias ls="ls --color=always --group-directories-first"
 alias ls="exa --icons --group-directories-first"
 # alias irc="ssh -i ~/.ssh/blinkenshell blinken"
 # alias v="vim"
@@ -233,13 +232,16 @@ bind '"\e[24~":"sudo "'
 # PS1="\[\e[1;38;5;208m\]mindhunter@sephiroth:\W\[\\e[0m\] "
 # PS1="\[\e[1;38;5;161m\]\W ⵀ\[\\e[0m\] "
 
-if [[ -z "$(ip netns identify)" ]]
-   then
-      PS1="\[\e[1;38;5;210m\]\w\[\e[0m\] in \[\e[1;38;5;216m\]\h\[\e[0m\]\n\[\e[38;5;245m\]$\[\e[0m\] "
-   else
-      ns_name="$(ip netns identify)"
-      PS1="\[\e[1;38;5;210m\]\w\[\e[0m\] in \[\e[1;38;5;216m\]${ns_name}\n\[\e[0m\]\[\e[1;38;5;245m\]$\[\e[0m\] "
-fi
+# if [[ -z "$(ip netns identify)" ]]
+#    then
+#       PS1="\[\e[1;38;5;210m\]\w\[\e[0m\] in \[\e[1;38;5;216m\]\h\[\e[0m\]\n\[\e[38;5;245m\]$\[\e[0m\] "
+#    else
+#       ns_name="$(ip netns identify)"
+#       PS1="\[\e[1;38;5;210m\]\w\[\e[0m\] in \[\e[1;38;5;216m\]${ns_name}\n\[\e[0m\]\[\e[1;38;5;245m\]$\[\e[0m\] "
+# fi
+#
+#
+PS1="\[\e[1;38;5;210m\]\w\[\e[0m\] in \[\e[1;38;5;216m\]\h\[\e[0m\]\n\[\e[38;5;245m\]$\[\e[0m\] "
 
 # Set variables
 export XDG_RUNTIME_DIR=/run/user/1000
@@ -262,7 +264,7 @@ exec {BASH_XTRACEFD}> /dev/null
 export HISTCONTROL="erasedups":"ignoreboth"
 export PROMPT_DIRTRIM=2
 # source ~/.bin/dir_colors
-unalias l
+# unalias l
 
 #-------- Color Manpages
 export LESS_TERMCAP_mb=$'\E[01;31m'             # begin blinking

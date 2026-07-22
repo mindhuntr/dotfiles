@@ -787,7 +787,6 @@ local servers = {
   -- gopls = {},
   basedpyright = {},
   cssls = {},
-  rust_analyzer = {},
   ruby_lsp = {},
   bashls = {},
   ts_ls = {},
@@ -825,6 +824,8 @@ local servers = {
 
 -- Dartls setup 
 vim.lsp.enable("dartls")
+
+vim.lsp.enable("rust_analyzer")
 
 -- basedpyright
 vim.lsp.config("basedpyright", {
