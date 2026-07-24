@@ -790,6 +790,7 @@ local servers = {
   ruby_lsp = {},
   bashls = {},
   ts_ls = {},
+  tailwindcss = {},
   lua_ls = {
     settings = {
       Lua = {
@@ -842,6 +843,9 @@ vim.lsp.config("basedpyright", {
     },
   },
 })
+
+-- Tailwindcss
+vim.lsp.enable("tailwindcss")
 
 
 -- Disable diagnostics for LSPs
