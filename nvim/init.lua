@@ -799,10 +799,7 @@ local servers = {
         },
 
         diagnostics = {
-          globals = {
-            'vim',
-            'require',
-          },
+          globals = { 'vim', 'require', 'hl' },
         },
 
         workspace = {

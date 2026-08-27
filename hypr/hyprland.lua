@@ -61,7 +61,6 @@ local menu = "rofi"
 local volume = "pactl set-sink-volume @DEFAULT_SINK@"
 local brightness = "brightnessctl"
 local iconpath = HOME .. "/.config/hypr/notify_icons"
-local workspace = HOME .. "/.config/hypr/scripts/ws_switch.sh"
 
 
 -- General configuration
@@ -92,9 +91,8 @@ hl.config({
 
 hl.config({
     cursor = {
-        inactive_timeout = 1,
-        hide_on_key_press = true,
-        no_warps = true
+        inactive_timeout = 2,
+        hide_on_key_press = false,
     },
 })
 
@@ -115,7 +113,6 @@ hl.config({
 })
 
 -- Default curves and animations
-
 hl.curve("myBezier", { type = "bezier", points = { {0.05, 0.9}, {0.1, 1.05} } })
 -- hl.curve("myBezier",   { type = "bezier", points = { {0.22, 1},  {0.36, 1}    } })
 -- hl.curve("overshoot",  { type = "bezier", points = { {0.05, 0.9},{0.1, 1.0.5} } })
@@ -208,10 +205,10 @@ hl.window_rule({ match = { class = "^(org.quickshell)$", title = "^(Settings)$" 
 -- Key Bindings 
 local mainMod = "SUPER"
 
--- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.dsp.focus({ workspace = "previous" })
 -- hl.bind("SUPER+Tab", hl.dsp.workspace.change({ workspace = "previous" }))
-hl.bind("SUPER+Q", hl.dsp.window.kill()) -- TODO: verify killactive maps to window.kill()
+hl.bind("SUPER+Q", hl.dsp.window.close()) -- TODO: verify killactive maps to window.kill()
+hl.bind("SUPER+SHIFT+Q", hl.dsp.window.kill()) -- TODO: verify killactive maps to window.kill()
 hl.bind("SUPER+SHIFT+E", hl.dsp.exec_cmd(HOME .. "/.config/rofi/scripts/powermenu/powermenu"))
 hl.bind("SUPER+F", hl.dsp.window.fullscreen()) -- TODO: verify fullscreen() args
 hl.bind("SUPER+V", hl.dsp.window.float({ action = "toggle" }))
