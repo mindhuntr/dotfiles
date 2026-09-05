@@ -10,7 +10,7 @@
 ---@module 'hl'
 
 -- Monitors 
-hl.monitor({ output = "eDP-1", mode = "preferred", position = "auto", scale = 1 })
+hl.monitor({ output = "eDP-1",mode = "1920x1080@120",position = "0x0",scale = 1,})
 -- monitor = HDMI-A-1,preferred,auto,1,mirror,eDP-1
 
 -- Envs 

@@ -791,33 +791,7 @@ local servers = {
   bashls = {},
   ts_ls = {},
   tailwindcss = {},
-  lua_ls = {
-    settings = {
-      Lua = {
-        runtime = {
-          version = "LuaJIT",
-        },
-
-        diagnostics = {
-          globals = { 'vim', 'require', 'hl' },
-        },
-
-        workspace = {
-          checkThirdParty = false,
-          library = {
-              vim.env.VIMRUNTIME
-              -- Depending on the usage, you might want to add additional paths here.
-              -- "${3rd}/luv/library"
-              -- "${3rd}/busted/library",
-          }
-        }
-      },
-
-        telemetry = { enable = false },
-        -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-        -- diagnostics = { disable = { 'missing-fields' } },
-      },
-    },
+  lua_ls = {},
   }
 
 -- Dartls setup 
@@ -839,6 +813,17 @@ vim.lsp.config("basedpyright", {
       },
     },
   },
+})
+
+-- lua
+vim.lsp.config("lua_ls", {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim", "hl" }
+      }
+    }
+  }
 })
 
 -- Tailwindcss
